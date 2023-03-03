@@ -29,9 +29,11 @@ function Page() {
         descricao: "descricao",
       }
     );
-    axios.get(ImgUrl).then((res) => {
-      setDados(res.data);
-    });
+    setTimeout(() => {
+      axios.get(ImgUrl).then((res) => {
+        setDados(res.data);
+      });
+    }, 500);
   };
 
   const session = sessionStorage.getItem("session");
