@@ -7,17 +7,23 @@ import { FaEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Dev = () => {
-  const [dados, setDados] = useState([]);
+  const [dados, setDados] = useState("");
   const [openModal, setOpenModal] = useState(styles.insertOff);
-  const url = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
 
   const nav = useNavigate();
+  const url = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
 
   useEffect(() => {
     axios.get(url).then((res) => {
       setDados(res.data);
     });
   }, []);
+
+  const get = () => {
+    axios.get(url).then((res) => {
+      setDados(res.data);
+    });
+  };
 
   const open = () => {
     setOpenModal(styles.insert);
@@ -39,14 +45,16 @@ const Dev = () => {
         descricao: "descricao",
       }
     );
-    axios.get(url).then((res) => {
-      setDados(res.data);
-    });
+    setTimeout(() => {
+      axios.get(url).then((res) => {
+        setDados(res.data);
+      });
+    }, 300);
   };
   return (
     <>
       <div className={styles.dev}>
-        <InsertDev mod={openModal} close={close} />
+        <InsertDev mod={openModal} close={close} get={get} />
         <h1>Desenvolvimento</h1>
         <button onClick={open} className={styles.bt}>
           Adicionar Elemento

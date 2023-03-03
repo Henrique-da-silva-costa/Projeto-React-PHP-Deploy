@@ -18,11 +18,10 @@ function Page() {
       axios.get(ImgUrl).then((res) => {
         setDados(res.data);
       });
-    }, 500);
+    }, 700);
   }, []);
 
   const deletar = (e) => {
-    console.log(e);
     axios.delete(
       `https://henriquedeveloper.com.br/PHP/admin/delete.php?id=${e}`,
       {
