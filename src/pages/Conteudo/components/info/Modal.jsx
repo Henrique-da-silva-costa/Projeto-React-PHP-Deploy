@@ -30,7 +30,7 @@ const Modal = ({ modal, closed }) => {
         <AiOutlineCloseCircle />
       </button>
       <h1>Descrição</h1>
-      {/* {dados ? <p>{dados[0].descricao}</p> : ""} */}
+      {dados ? <p>{dados[0].descricao}</p> : ""}
     </div>
   );
 };
