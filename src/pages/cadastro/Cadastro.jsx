@@ -58,7 +58,7 @@ function Cadastro() {
               onChange={(e) => setSenha(e.target.value)}
             />
           </label>
-          <Link to={"/admin"} onClick={post}>
+          <Link to={"/"} onClick={post}>
             <button type="submit">Cadastrar</button>
           </Link>
         </form>
