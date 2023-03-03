@@ -11,7 +11,7 @@ const Item = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:1999/admin/imgunica.php?id=${id}`)
+      .get(`https://henriquedeveloper.com.br/php/admin/imgunica.php?id=${id}`)
       .then((res) => {
         setDados(res.data);
       });
