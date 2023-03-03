@@ -1,0 +1,123 @@
+.body svg {
+  color: black;
+  font-size: 0px;
+}
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.admin p {
+  margin: 0;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.home p {
+  margin: 0;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.about p {
+  margin: 0;
+}
+
+.nav {
+  gap: 1rem;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  width: 40px;
+  transition: 0.4s all;
+  align-items: center;
+  padding: 30px 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 10px;
+  z-index: 4;
+  background-color: #5457ff;
+}
+
+.nav svg {
+  color: black;
+  font-size: 40px;
+}
+
+.nav button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.navClose {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 0px;
+  transition: 0.4s all;
+  z-index: 4;
+}
+
+.open {
+  display: block;
+  position: fixed;
+  z-index: 3;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.open svg {
+  color: #5457ff;
+  font-size: 40px;
+}
+
+.CloseOpen {
+  display: none;
+}
+
+.xclose {
+  display: block;
+}
+
+.Xnone {
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .navClose {
+    height: 0px;
+    transition: 0.4s all;
+  }
+  .nav {
+    overflow: hidden;
+  }
+  .open {
+    display: block;
+  }
+  .xclose {
+    display: block;
+  }
+}

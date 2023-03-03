@@ -1,0 +1,42 @@
+.arti {
+  display: flex;
+  justify-content: center;
+  margin: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.arti img {
+  box-shadow: 10px 13px 9px grey;
+  cursor: grab;
+  height: 400px;
+  border-radius: 10px;
+}
+
+.arti button {
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid grey;
+  background: none;
+  padding: 10px 20px;
+  transition: all 0.4s;
+}
+
+.arti a {
+  color: #000;
+  text-decoration: none;
+}
+
+.arti a:hover {
+  color: #000;
+}
+
+@media (min-width: 320px) and (max-width: 500px) {
+  .arti img {
+    height: 160px;
+  }
+}

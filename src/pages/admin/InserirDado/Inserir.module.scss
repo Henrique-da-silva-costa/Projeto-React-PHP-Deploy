@@ -1,0 +1,43 @@
+.inserir {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    button {
+      margin-top: 10px;
+      cursor: pointer;
+      display: flex;
+      padding: 10px 0px;
+      width: 100px;
+      border-radius: 5px;
+      border: none;
+      justify-content: center;
+      background-color: rgba(0, 0, 255, 0.479);
+    }
+    input {
+      background: none;
+      outline: none;
+      border-radius: 5px;
+      border: 1px solid;
+      width: 300px;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.inputActive {
+  background-color: rgba(255, 0, 0, 0.521) !important;
+}
+.areaActive {
+  background-color: rgba(255, 0, 0, 0.521);
+}

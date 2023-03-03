@@ -1,0 +1,28 @@
+.notfound {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.notfound h1 {
+  text-transform: uppercase;
+  text-align: center;
+  color: black;
+}
+.notfound button {
+  text-transform: uppercase;
+  text-align: center;
+  color: black;
+  background: none;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.notfound a {
+  text-decoration: none;
+  color: #000;
+}
+
+.notfound a:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.692);
+}

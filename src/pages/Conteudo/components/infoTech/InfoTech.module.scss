@@ -1,0 +1,24 @@
+.arti {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.item {
+  background-color: #ffffff8f;
+  border-radius: 5px;
+  padding: 8px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .arti {
+    flex-direction: column;
+  }
+}

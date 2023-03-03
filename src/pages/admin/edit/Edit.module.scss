@@ -1,0 +1,41 @@
+.edit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+      border: 1px solid;
+      border-radius: 5px;
+    }
+    a {
+      width: 100%;
+    }
+
+    button {
+      cursor: pointer;
+      background-color: rgba(0, 4, 255, 0.541);
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      border: none;
+      padding: 7px;
+      width: 100%;
+    }
+  }
+}
+.input {
+  background-color: rgba(255, 0, 0, 0.63) !important;
+  &::placeholder {
+    color: black;
+  }
+}
+.inputDesc {
+  background-color: rgba(255, 0, 0, 0.63) !important;
+  &::placeholder {
+    color: black;
+  }
+}

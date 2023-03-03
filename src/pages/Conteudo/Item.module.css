@@ -1,0 +1,43 @@
+.dad {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.705);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.item {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-wrap: anywhere;
+  max-width: 600px;
+  font-size: 14px;
+}
+
+.item img {
+  height: 400px;
+  border-radius: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 500px) {
+  .item img {
+    height: 170px;
+  }
+}

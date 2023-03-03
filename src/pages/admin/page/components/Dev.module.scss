@@ -1,0 +1,156 @@
+.dev {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .bt {
+    border-radius: 5px;
+    padding: 15px 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: rgba(0, 0, 255, 0.479);
+    justify-content: center;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dados {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 6px 3px 16px;
+}
+
+.edit {
+  font-size: 25px;
+  color: green;
+}
+.delete {
+  font-size: 25px;
+  color: red;
+}
+
+.btIcon {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+// modal
+.insert {
+  position: fixed;
+  height: 100%;
+  // width: 100%;
+  transition: all 0.4s;
+  opacity: 1;
+  color: #fff;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.651);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    input {
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid black;
+      background: none;
+      color: #fff;
+      &::placeholder {
+        color: #ffffffc7;
+      }
+    }
+    textarea {
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid black;
+      background: none;
+      color: #fff;
+      &::placeholder {
+        color: #ffffffc7;
+      }
+    }
+    button {
+      border-radius: 5px;
+      padding: 10px 30px;
+      background: none;
+      color: #fff;
+      border: 1px solid black;
+      outline: none;
+    }
+  }
+}
+.insertOff {
+  height: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: -1;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    input {
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid black;
+      background: none;
+      color: #fff;
+      &::placeholder {
+        color: #ffffffc7;
+      }
+    }
+    textarea {
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid black;
+      background: none;
+      color: #fff;
+      &::placeholder {
+        color: #ffffffc7;
+      }
+    }
+    button {
+      border-radius: 5px;
+      padding: 10px 30px;
+      background: none;
+      color: #fff;
+      border: 1px solid black;
+      outline: none;
+    }
+  }
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+// modal

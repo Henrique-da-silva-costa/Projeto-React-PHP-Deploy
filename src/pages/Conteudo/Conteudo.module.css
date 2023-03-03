@@ -1,0 +1,23 @@
+.DadConteudo {
+  padding: 5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+nav button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
