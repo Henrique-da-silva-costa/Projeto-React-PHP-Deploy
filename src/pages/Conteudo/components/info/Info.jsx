@@ -6,7 +6,7 @@ import Modal from "./Modal";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Info = () => {
-  const url = "http://localhost:1999/admin/dev.php";
+  const url = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
   const [dados, setDados] = useState([]);
   const navgate = useNavigate();
   let param = useParams();
@@ -34,7 +34,7 @@ const Info = () => {
 
   const get = () => {
     axios
-      .get(`http://localhost:1999/admin/dadounico.php?id=${id}`)
+      .get(`https://henriquedeveloper.com.br/PHP/admin/dadounico.php?id=${id}`)
       .then((res) => {
         // setDados(res.data);
       });

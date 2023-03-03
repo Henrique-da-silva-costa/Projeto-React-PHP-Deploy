@@ -10,9 +10,11 @@ import "swiper/css";
 const Slide = () => {
   const [dados, setDados] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:1999/admin/imagens.php").then((res) => {
-      setDados(res.data);
-    });
+    axios
+      .get("https://henriquedeveloper.com.br/PHP/admin/imagens.php")
+      .then((res) => {
+        setDados(res.data);
+      });
   }, []);
 
   let nav = useNavigate();

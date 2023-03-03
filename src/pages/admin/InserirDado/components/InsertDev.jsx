@@ -8,7 +8,7 @@ function InsertDev({ mod, close }) {
   const [descricao, setDesc] = useState();
   const [modal, setModal] = useState(mod);
   //   const [img, setImg] = useState();
-  const url = "http://localhost:1999/admin/insertDev.php";
+  const url = "https://henriquedeveloper.com.br/PHP/admin/insertDev.php";
 
   const post = (e) => {
     e.preventDefault();

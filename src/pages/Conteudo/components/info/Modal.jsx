@@ -9,7 +9,7 @@ const Modal = ({ modal, closed }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:1999/admin/dadounico.php?id=${id}`)
+      .get(`https://henriquedeveloper.com.br/PHP/admin/dadounico.php?id=${id}`)
       .then((res) => {
         setDados(res.data);
       });
@@ -17,7 +17,7 @@ const Modal = ({ modal, closed }) => {
 
   // const get = () => {
   //   axios
-  //     .get(`http://localhost:1999/admin/dadounico.php?id=${id}`)
+  //     .get(`https://henriquedeveloper.com.br/PHP/admin/dadounico.php?id=${id}`)
   //     .then((res) => {
   //       setDados(res.data);
   //     });

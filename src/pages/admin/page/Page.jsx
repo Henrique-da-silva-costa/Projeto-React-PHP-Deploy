@@ -10,7 +10,7 @@ import Dev from "./components/Dev";
 function Page() {
   const [dados, setDados] = useState();
   const [page, setPage] = useState(styles.page);
-  const ImgUrl = "http://localhost:1999/admin/imagens.php";
+  const ImgUrl = "https://henriquedeveloper.com.br/PHP/admin/imagens.php";
   const navgate = useNavigate();
 
   useEffect(() => {
@@ -21,11 +21,14 @@ function Page() {
 
   const deletar = (e) => {
     console.log(e);
-    axios.delete(`http://localhost:1999/admin/delete.php?id=${e}`, {
-      img: "img",
-      titulo: "titulo",
-      descricao: "descricao",
-    });
+    axios.delete(
+      `https://henriquedeveloper.com.br/PHP/admin/delete.php?id=${e}`,
+      {
+        img: "img",
+        titulo: "titulo",
+        descricao: "descricao",
+      }
+    );
     axios.get(ImgUrl).then((res) => {
       setDados(res.data);
     });

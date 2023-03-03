@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Dev = () => {
   const [dados, setDados] = useState([]);
   const [openModal, setOpenModal] = useState(styles.insertOff);
-  const url = "http://localhost:1999/admin/dev.php";
+  const url = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
 
   const nav = useNavigate();
 
@@ -32,10 +32,13 @@ const Dev = () => {
   };
 
   const deletar = (e) => {
-    axios.delete(`http://localhost:1999/admin/deletedev.php?id=${e}`, {
-      titulo: "titulo",
-      descricao: "descricao",
-    });
+    axios.delete(
+      `https://henriquedeveloper.com.br/PHP/admin/deletedev.php?id=${e}`,
+      {
+        titulo: "titulo",
+        descricao: "descricao",
+      }
+    );
     axios.get(url).then((res) => {
       setDados(res.data);
     });

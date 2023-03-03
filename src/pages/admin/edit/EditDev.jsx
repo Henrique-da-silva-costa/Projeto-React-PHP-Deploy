@@ -10,7 +10,7 @@ const EditDev = () => {
   let param = useParams();
   let id = param.id;
 
-  const url = `http://localhost:1999/admin/editdev.php?id=${id}`;
+  const url = `https://henriquedeveloper.com.br/PHP/admin/editdev.php?id=${id}`;
 
   useEffect(() => {
     axios.get(url).then((res) => {
@@ -21,10 +21,13 @@ const EditDev = () => {
   const edit = (e) => {
     e.preventDefault();
 
-    axios.delete(`http://localhost:1999/admin/updatedev.php?id=${id}`, {
-      titulo,
-      descricao,
-    });
+    axios.delete(
+      `https://henriquedeveloper.com.br/PHP/admin/updatedev.php?id=${id}`,
+      {
+        titulo,
+        descricao,
+      }
+    );
     navgate("/admin");
   };
 

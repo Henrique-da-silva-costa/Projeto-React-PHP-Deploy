@@ -8,7 +8,7 @@ function Cadastro() {
   const [senha, setSenha] = useState("");
   const [val, setVal] = useState();
 
-  const url = "http://localhost:1999/login/insert.php";
+  const url = "https://henriquedeveloper.com.br/PHP/login/insert.php";
 
   const submit = (e) => {
     e.preventDefault();

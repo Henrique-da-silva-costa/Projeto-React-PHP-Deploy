@@ -31,7 +31,7 @@ const Login = () => {
       setLogin("/");
     }
     const { data } = await axios.post(
-      "http://localhost:1999/login/val.php",
+      "https://henriquedeveloper.com.br/PHP/login/val.php",
       userDdados
     );
     sessionStorage.setItem("session", data);
@@ -81,7 +81,7 @@ const Login = () => {
 
 export default Login;
 
-// const { data } = await axios.get("http://localhost:1999/login/auth.php", {
+// const { data } = await axios.get("https://henriquedeveloper.com.br/PHP/login/auth.php", {
 //   headers: {
 //     Authorization: auth,
 //   },

@@ -11,7 +11,7 @@ function Inserir() {
   const [img, setImg] = useState(null);
   let navgate = useNavigate();
 
-  const url = "http://localhost:1999/admin/insert.php";
+  const url = "https://henriquedeveloper.com.br/PHP/admin/insert.php";
   const submit = (e) => {
     if (titulo == "" || descricao == "") {
       setArea(styles.areaActive);

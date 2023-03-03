@@ -18,9 +18,11 @@ function Edit() {
   let id = param.id;
 
   useEffect(() => {
-    axios.get(`http://localhost:1999/admin/edit.php?id=${id}`).then((res) => {
-      setDados(res.data);
-    });
+    axios
+      .get(`https://henriquedeveloper.com.br/PHP/admin/edit.php?id=${id}`)
+      .then((res) => {
+        setDados(res.data);
+      });
   }, []);
 
   const submit = (e) => {
@@ -32,7 +34,7 @@ function Edit() {
       setUrl(`/admin/edit/${id}`);
     }
     axios.post(
-      `http://localhost:1999/admin/update.php?id=${param.id}`,
+      `https://henriquedeveloper.com.br/PHP/admin/update.php?id=${param.id}`,
       {
         img,
         titulo,
