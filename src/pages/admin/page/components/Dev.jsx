@@ -5,10 +5,12 @@ import styles from "./Dev.module.css";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../../../Loading";
 
 const Dev = () => {
   const [dados, setDados] = useState("");
   const [openModal, setOpenModal] = useState(styles.insertOff);
+  const [load, setLoad] = useState(false);
 
   const nav = useNavigate();
   const url = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
@@ -20,8 +22,11 @@ const Dev = () => {
   }, []);
 
   const get = () => {
-    axios.get(url).then((res) => {
-      setDados(res.data);
+    setTimeout(() => {
+      axios.get(url).then((res) => {
+        setDados(res.data);
+        setLoad(true);
+      }, 1000);
     });
   };
 
@@ -48,8 +53,9 @@ const Dev = () => {
     setTimeout(() => {
       axios.get(url).then((res) => {
         setDados(res.data);
+        setLoad(true);
       });
-    }, 300);
+    }, 1000);
   };
   return (
     <>
@@ -88,6 +94,7 @@ const Dev = () => {
             })
           : ""}
       </div>
+      {/* {!load ? <Loading /> : ""} */}
     </>
   );
 };

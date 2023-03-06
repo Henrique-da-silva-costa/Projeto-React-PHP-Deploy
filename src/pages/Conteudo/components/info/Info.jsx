@@ -4,17 +4,22 @@ import bg from "../../../../img/info.jpg";
 import axios from "axios";
 import Modal from "./Modal";
 import { useNavigate, useParams } from "react-router-dom";
+import Loading from "../../../../Loading";
 
 const Info = () => {
   const url = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
   const [dados, setDados] = useState([]);
   const navgate = useNavigate();
+  const [load, setLoad] = useState(false);
   let param = useParams();
   let id = param.id;
   useEffect(() => {
-    axios.get(url).then((res) => {
-      setDados(res.data);
-    });
+    setTimeout(() => {
+      axios.get(url).then((res) => {
+        setDados(res.data);
+        setLoad(true);
+      });
+    }, 1000);
   }, []);
 
   const [modal, setModal] = useState(styles.modalNone);
@@ -58,6 +63,7 @@ const Info = () => {
                 );
               })
             : ""}
+          {!load ? <Loading /> : ""}
         </div>
       </div>
     </article>

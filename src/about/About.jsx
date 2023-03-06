@@ -7,12 +7,12 @@ import Sobre from "./components/Sobre";
 
 const About = () => {
   return (
-    <>
+    <div className={styles.about}>
       <Header />
       <Sobre />
       <Projetos />
       <Footer />
-    </>
+    </div>
   );
 };
 

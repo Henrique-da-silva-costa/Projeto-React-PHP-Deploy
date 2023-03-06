@@ -3,18 +3,22 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
+import Loading from "../../Loading";
 const Item = () => {
   const [dados, setDados] = useState();
-
+  const [load, setload] = useState(false);
   let param = useParams();
   let id = param.id;
 
   useEffect(() => {
-    axios
-      .get(`https://henriquedeveloper.com.br/PHP/admin/imgunica.php?id=${id}`)
-      .then((res) => {
-        setDados(res.data);
-      });
+    setTimeout(() => {
+      axios
+        .get(`https://henriquedeveloper.com.br/PHP/admin/imgunica.php?id=${id}`)
+        .then((res) => {
+          setDados(res.data);
+          setload(true);
+        });
+    }, 1000);
   }, []);
 
   return (
@@ -32,6 +36,7 @@ const Item = () => {
         ) : (
           ""
         )}
+        {!load ? <Loading /> : ""}
       </div>
     </div>
   );

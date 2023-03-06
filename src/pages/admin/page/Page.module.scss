@@ -1,4 +1,5 @@
 .page {
+  margin-top: 3rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -73,6 +74,9 @@
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
+  .page {
+    margin-top: 0;
+  }
   .conteudo {
     padding: 1rem;
     flex-direction: column;

@@ -8,7 +8,7 @@ import { TfiClose } from "react-icons/tfi";
 import { useState } from "react";
 
 const Nav = () => {
-  const [close, setClose] = useState(styles.navClose);
+  const [close, setClose] = useState(styles.nav);
   const [xclose, setXclose] = useState(styles.xclose);
   const [opened, setOpened] = useState(styles.open);
   const nav = useNavigate();

@@ -6,19 +6,22 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import Dev from "./components/Dev";
+import Loading from "../../../Loading";
 
 function Page() {
   const [dados, setDados] = useState();
   const [page, setPage] = useState(styles.page);
   const ImgUrl = "https://henriquedeveloper.com.br/PHP/admin/imagens.php";
+  const [loading, setLoading] = useState(false);
   const navgate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
       axios.get(ImgUrl).then((res) => {
         setDados(res.data);
+        setLoading(true);
       });
-    }, 700);
+    }, 1000);
   }, []);
 
   const deletar = (e) => {
@@ -33,8 +36,9 @@ function Page() {
     setTimeout(() => {
       axios.get(ImgUrl).then((res) => {
         setDados(res.data);
+        setLoading(true);
       });
-    }, 500);
+    }, 1000);
   };
 
   const session = sessionStorage.getItem("session");
@@ -85,7 +89,7 @@ function Page() {
               );
             })
           : ""}
-
+        {!loading ? <Loading /> : ""}
         <Dev />
       </div>
     );

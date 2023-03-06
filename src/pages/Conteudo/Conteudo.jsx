@@ -10,7 +10,7 @@ import InfoTech from "./components/infoTech/InfoTech";
 // import Carrousell from "../../components/Carrousell";
 function Conteudo() {
   return (
-    <>
+    <div className={styles.conteudo}>
       <ModalHome />
       <Header />
       <section className={styles.DadConteudo}>
@@ -19,7 +19,7 @@ function Conteudo() {
         <InfoTech />
       </section>
       <Footer />
-    </>
+    </div>
   );
 }
 

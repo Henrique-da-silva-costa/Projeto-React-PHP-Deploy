@@ -6,15 +6,20 @@ import { Swiper, SwiperSlide, loop } from "swiper/react";
 import "swiper/css/navigation";
 // import { loop } from "swiper";
 import "swiper/css";
+import Loading from "../../../../Loading";
 // import "swiper/css/loop";
 const Slide = () => {
   const [dados, setDados] = useState([]);
+  const [removeLoading, setRemoveLoading] = useState(false);
   useEffect(() => {
-    axios
-      .get("https://henriquedeveloper.com.br/PHP/admin/imagens.php")
-      .then((res) => {
-        setDados(res.data);
-      });
+    setTimeout(() => {
+      axios
+        .get("https://henriquedeveloper.com.br/PHP/admin/imagens.php")
+        .then((res) => {
+          setDados(res.data);
+          setRemoveLoading(true);
+        });
+    }, 800);
   }, []);
 
   let nav = useNavigate();
@@ -40,6 +45,7 @@ const Slide = () => {
                 );
               })
             : ""}
+          {!removeLoading ? <Loading /> : ""}
         </Swiper>
       </div>
     </article>

@@ -1,5 +1,4 @@
 .home {
-  margin-top: 3rem;
   height: 100%;
   display: flex;
   text-align: center;
@@ -57,10 +56,4 @@
 
 .inputActive::placeholder {
   color: black;
-}
-
-@media (min-width: 150px) and (max-width: 768px) {
-  .home {
-    margin-top: 0;
-  }
 }

@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
 }
 
 .block {
@@ -37,6 +38,9 @@
 }
 
 @media (min-width: 320px) and (max-width: 500px) {
+  .dad {
+    margin-top: 0;
+  }
   .item img {
     height: 170px;
   }

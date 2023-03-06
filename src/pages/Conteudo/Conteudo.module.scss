@@ -1,3 +1,6 @@
+.conteudo {
+  margin-top: 3rem;
+}
 .DadConteudo {
   padding: 5rem 1rem;
   display: flex;
@@ -18,5 +21,10 @@ nav {
     outline: none;
     border: none;
     cursor: pointer;
+  }
+}
+@media (min-width: 150px) and (max-width: 768px) {
+  .conteudo {
+    margin-top: 0;
   }
 }

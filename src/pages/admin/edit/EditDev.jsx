@@ -21,7 +21,7 @@ const EditDev = () => {
   const edit = (e) => {
     e.preventDefault();
 
-    axios.delete(
+    axios.post(
       `https://henriquedeveloper.com.br/PHP/admin/updatedev.php?id=${id}`,
       {
         titulo,
