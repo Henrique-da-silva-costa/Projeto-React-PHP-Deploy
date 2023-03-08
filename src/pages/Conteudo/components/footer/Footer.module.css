@@ -63,6 +63,10 @@ footer svg:hover {
   flex-direction: column;
 }
 
+.em form h1 {
+  color: #fff;
+}
+
 .em form input {
   border: 1px solid #fff;
   outline: none;
@@ -117,6 +121,10 @@ footer svg:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.emx form h1 {
+  color: #fff;
 }
 
 .emx form input {
