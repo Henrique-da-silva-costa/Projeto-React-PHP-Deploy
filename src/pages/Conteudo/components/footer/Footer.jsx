@@ -3,8 +3,18 @@ import { BsGithub, BsWhatsapp } from "react-icons/bs";
 import { AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import Email from "../../../../email/Email";
+import { useState } from "react";
 
 const Footer = () => {
+  const [email, setEmail] = useState(styles.emx);
+
+  const open = () => {
+    setEmail(styles.em);
+  };
+  const closed = () => {
+    setEmail(styles.emx);
+  };
+
   const navgate = useNavigate();
   return (
     <footer>
@@ -21,14 +31,10 @@ const Footer = () => {
         <a href="https://wa.me/5544997070974" target="_blank">
           <BsWhatsapp />
         </a>
+        <AiOutlineMail onClick={open} />
       </div>
-      <div className={styles.email}>
-        <AiOutlineMail />
-        <p>
-          <strong>henriquedasilvacosta@live.com</strong>
-        </p>
-      </div>
-      <Email />
+
+      <Email email={email} closs={closed} />
     </footer>
   );
 };
