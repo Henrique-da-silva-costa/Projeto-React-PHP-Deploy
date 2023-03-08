@@ -37,11 +37,11 @@ const Info = () => {
     navgate("/");
   };
 
-  const get = () => {
+  const get = (e) => {
     axios
       .get(`https://henriquedeveloper.com.br/PHP/admin/dadounico.php?id=${id}`)
       .then((res) => {
-        // setDados(res.data);
+        setDados(res.data);
       });
   };
 

@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styles from "./Cadastro.module.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Cadastro() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [val, setVal] = useState();
-
+  const navgate = useNavigate();
   const url = "https://henriquedeveloper.com.br/PHP/login/insert.php";
 
   const submit = (e) => {
@@ -31,6 +31,7 @@ function Cadastro() {
       senha,
       email,
     });
+    navgate("/login");
   };
 
   return (
@@ -58,9 +59,9 @@ function Cadastro() {
               onChange={(e) => setSenha(e.target.value)}
             />
           </label>
-          <Link to={"/"} onClick={post}>
-            <button type="submit">Cadastrar</button>
-          </Link>
+          <button type="submit" onClick={post}>
+            Cadastrar
+          </button>
         </form>
       </div>
     </div>

@@ -2,6 +2,7 @@ import styles from "./Footer.module.css";
 import { BsGithub, BsWhatsapp } from "react-icons/bs";
 import { AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import Email from "../../../../email/Email";
 
 const Footer = () => {
   const navgate = useNavigate();
@@ -27,6 +28,7 @@ const Footer = () => {
           <strong>henriquedasilvacosta@live.com</strong>
         </p>
       </div>
+      <Email />
     </footer>
   );
 };

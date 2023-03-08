@@ -15,29 +15,31 @@ function Page() {
   const [loading, setLoading] = useState(false);
   const navgate = useNavigate();
 
-  useEffect(() => {
+  const get = () => {
     setTimeout(() => {
       axios.get(ImgUrl).then((res) => {
         setDados(res.data);
         setLoading(true);
       });
     }, 1000);
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      get();
+    }, 1000);
   }, []);
 
   const deletar = (e) => {
-    axios.delete(
-      `https://henriquedeveloper.com.br/PHP/admin/delete.php?id=${e}`,
-      {
-        img: "img",
-        titulo: "titulo",
-        descricao: "descricao",
-      }
-    );
     setTimeout(() => {
-      axios.get(ImgUrl).then((res) => {
-        setDados(res.data);
-        setLoading(true);
-      });
+      axios.delete(
+        `https://henriquedeveloper.com.br/PHP/admin/delete.php?id=${e}`,
+        {
+          img: "img",
+          titulo: "titulo",
+          descricao: "descricao",
+        }
+      );
+      get();
     }, 1000);
   };
 

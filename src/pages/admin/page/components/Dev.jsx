@@ -16,9 +16,12 @@ const Dev = () => {
   const url = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
 
   useEffect(() => {
-    axios.get(url).then((res) => {
-      setDados(res.data);
-    });
+    setTimeout(() => {
+      axios.get(url).then((res) => {
+        setDados(res.data);
+        setLoad(true);
+      });
+    }, 1000);
   }, []);
 
   const get = () => {
@@ -94,7 +97,7 @@ const Dev = () => {
             })
           : ""}
       </div>
-      {/* {!load ? <Loading /> : ""} */}
+      {!load ? <Loading /> : ""}
     </>
   );
 };
