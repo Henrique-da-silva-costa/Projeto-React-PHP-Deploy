@@ -34,3 +34,7 @@
   right: 5px;
   top: 5px;
 }
+
+.vazio {
+  background-color: rgba(255, 0, 0, 0.671);
+}

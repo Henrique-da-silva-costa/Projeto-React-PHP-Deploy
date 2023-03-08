@@ -39,6 +39,10 @@ footer svg:hover {
   }
 }
 
+.vazio {
+  background-color: rgba(255, 0, 0, 0.671);
+}
+
 .em {
   z-index: 6;
   position: fixed;
@@ -68,11 +72,15 @@ footer svg:hover {
 }
 
 .em form input {
-  border: 1px solid #fff;
+  border: 1px solid #ffffff9a;
   outline: none;
   background: none;
   color: #fff;
   border-radius: 5px;
+}
+
+.em form input::placeholder {
+  color: #e2e2e2;
 }
 
 .em form textarea {
@@ -81,6 +89,10 @@ footer svg:hover {
   background: none;
   color: #fff;
   border-radius: 5px;
+}
+
+.em form textarea::placeholder {
+  color: #e2e2e2;
 }
 
 .em form button {

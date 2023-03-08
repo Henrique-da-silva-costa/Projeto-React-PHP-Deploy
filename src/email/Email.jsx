@@ -3,15 +3,25 @@ import { useState } from "react";
 import styles from "./Email.module.css";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 const Email = ({ email, closs }) => {
-  const [titulo, setTitulo] = useState();
-  const [msg, setMsg] = useState();
+  const [titulo, setTitulo] = useState("");
+  const [vazio, setVazio] = useState("");
+  //   const [msgValue, setMsgValue] = useState("");
+  const [msg, setMsg] = useState("");
 
   const post = (e) => {
     e.preventDefault();
-    axios.post("https://henriquedeveloper.com.br/PHP/email.php", {
-      titulo,
-      msg,
-    });
+    if (titulo && msg) {
+      axios.post("https://henriquedeveloper.com.br/PHP/email.php", {
+        titulo,
+        msg,
+      });
+      closs();
+      setTitulo("");
+      setMsg("");
+    }
+    if (titulo == "" || msg == "") {
+      setVazio(styles.vazio);
+    }
   };
 
   const closed = () => {
@@ -26,8 +36,10 @@ const Email = ({ email, closs }) => {
         <h1>Email </h1>
         <label>
           <input
+            className={vazio}
             type="text"
             name="titulo"
+            value={titulo}
             placeholder="titulo"
             onChange={(e) => setTitulo(e.target.value)}
           />
@@ -36,6 +48,8 @@ const Email = ({ email, closs }) => {
           <textarea
             name="msg"
             placeholder="mensagem"
+            className={vazio}
+            value={msg}
             onChange={(e) => setMsg(e.target.value)}
           ></textarea>
         </label>
