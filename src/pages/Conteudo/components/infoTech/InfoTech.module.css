@@ -11,15 +11,18 @@
   background-color: #ffffff8f;
   border-radius: 5px;
   padding: 8px;
-  height: 400px;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
   .arti {
     flex-direction: column;
+  }
+  .item {
+    height: 400px;
   }
 }

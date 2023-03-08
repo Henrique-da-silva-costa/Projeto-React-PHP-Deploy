@@ -4,6 +4,9 @@ import bg from "../../../../img/tech.jpg";
 const InfoTech = () => {
   return (
     <>
+      <h1 style={{ fontSize: "30px", textAlign: "center", margin: 0 }}>
+        Desenvolvimento
+      </h1>
       <article
         style={{ backgroundImage: `url(${bg})` }}
         className={styles.arti}

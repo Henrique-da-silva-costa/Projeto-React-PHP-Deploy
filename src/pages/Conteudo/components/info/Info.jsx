@@ -22,51 +22,48 @@ const Info = () => {
     }, 1000);
   }, []);
 
-  const [modal, setModal] = useState(styles.modalNone);
+  // const [modal, setModal] = useState(styles.modalNone);
 
-  const open = (e) => {
-    setModal(styles.modal);
-    navgate(`/descricao/${e}`);
-  };
+  // const open = (e) => {
+  //   setModal(styles.modal);
+  //   navgate(`/descricao/${e}`);
+  // };
 
-  const close = () => {
-    axios.get(url).then((res) => {
-      setDados(res.data);
-    });
-    setModal(styles.modalNone);
-    navgate("/");
-  };
-
-  const get = (e) => {
-    axios
-      .get(`https://henriquedeveloper.com.br/PHP/admin/dadounico.php?id=${id}`)
-      .then((res) => {
-        setDados(res.data);
-      });
-  };
+  // const close = () => {
+  //   axios.get(url).then((res) => {
+  //     setDados(res.data);
+  //   });
+  //   setModal(styles.modalNone);
+  //   navgate("/");
+  // };
 
   return (
-    <article style={{ backgroundImage: `url(${bg})` }} className={styles.infos}>
-      <Modal modal={modal} closed={close} res={get} />
-      <div className={styles.info}>
-        <div className={styles.items}>
-          {dados
-            ? dados.map((d) => {
-                return (
-                  <div
-                    key={d.id}
-                    className={styles.item}
-                    onClick={() => open(d.id)}
-                  >
-                    <h2>{d.titulo}</h2>
-                  </div>
-                );
-              })
-            : ""}
-          {!load ? <Loading /> : ""}
+    <>
+      <h1 style={{ fontSize: "30px", textAlign: "center", margin: 0 }}>
+        Informações
+      </h1>
+      <article
+        style={{ backgroundImage: `url(${bg})` }}
+        className={styles.infos}
+      >
+        {/* <Modal modal={modal} closed={close} /> */}
+        <div className={styles.info}>
+          <div className={styles.items}>
+            {dados
+              ? dados.map((d) => {
+                  return (
+                    <div key={d.id} className={styles.item}>
+                      <h2>{d.titulo}</h2>
+                      <p>{d.descricao}</p>
+                    </div>
+                  );
+                })
+              : ""}
+            {!load ? <Loading /> : ""}
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </>
   );
 };
 

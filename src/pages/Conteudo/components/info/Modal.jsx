@@ -7,24 +7,9 @@ const Modal = ({ modal, closed, res }) => {
   let id = param.id;
   const [dados, setDados] = useState();
 
-  const get = () => {
-    // setTimeout(() => {
-    //   axios
-    //     .get(
-    //       `https://henriquedeveloper.com.br/PHP/admin/dadounico.php?id=${id}`
-    //     )
-    //     .then((res) => {
-    //       setDados(res.data);
-    //     });
-    // }, 300);
-    res();
-    closed();
-    console.log(dados);
-  };
-
   return (
     <div className={modal}>
-      <button onClick={get}>
+      <button onClick={closed}>
         <AiOutlineCloseCircle />
       </button>
       <h1>Descrição</h1>

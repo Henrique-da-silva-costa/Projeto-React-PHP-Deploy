@@ -33,7 +33,7 @@ const Email = ({ email, closs }) => {
         <AiOutlineCloseCircle />
       </button>
       <form onSubmit={post}>
-        <h1>Email </h1>
+        <h1>Me envie um E-mail</h1>
         <label>
           <input
             className={vazio}
