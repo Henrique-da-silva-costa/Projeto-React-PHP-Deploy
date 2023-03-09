@@ -35,7 +35,7 @@ article {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    gap: 0rem;
+    gap: 1rem;
   }
   .imgsSlide img {
     height: 150px;
