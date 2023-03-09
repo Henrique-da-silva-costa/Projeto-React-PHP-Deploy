@@ -40,7 +40,7 @@ function Page() {
         }
       );
       get();
-    }, 1000);
+    }, 300);
   };
 
   const session = sessionStorage.getItem("session");

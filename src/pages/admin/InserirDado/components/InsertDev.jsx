@@ -3,19 +3,38 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import styles from "./InsertDev.module.css";
-function InsertDev({ mod, close, get }) {
-  const [titulo, setTitulo] = useState();
-  const [descricao, setDesc] = useState();
+function InsertDev({ mod, close, get, op }) {
+  const [titulo, setTitulo] = useState("");
+  const [descricao, setDesc] = useState("");
   const [modal, setModal] = useState(mod);
-  //   const [img, setImg] = useState();
+  const [dados, setDados] = useState("");
+  const [msg, setMsg] = useState("");
   const url = "https://henriquedeveloper.com.br/PHP/admin/insertdev.php";
+  const urlDados = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
 
-  const post = (e) => {
-    e.preventDefault();
+  const ps = () => {
     axios.post(url, {
       titulo,
       descricao,
     });
+  };
+
+  const very = () => {
+    axios.get(urlDados).then((res) => {
+      setDados(res.data);
+    });
+  };
+
+  const post = (e) => {
+    e.preventDefault();
+    very();
+    if (dados.length < 2) {
+      setMsg("");
+      ps();
+    } else {
+      setMsg("limite maximo de dados !");
+      op();
+    }
     setTimeout(() => {
       get();
     }, 300);
@@ -56,6 +75,7 @@ function InsertDev({ mod, close, get }) {
           Cadastrar
         </button>
       </form>
+      <h1>{msg}</h1>
     </div>
   );
 }

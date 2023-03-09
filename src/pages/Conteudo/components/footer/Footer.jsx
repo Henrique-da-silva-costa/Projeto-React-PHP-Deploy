@@ -18,6 +18,7 @@ const Footer = () => {
   const navgate = useNavigate();
   return (
     <footer>
+      <h1 style={{ color: "#fff" }}>CONTATO</h1>
       <div className={styles.links}>
         <a href="https://github.com/24101999" target="_blank">
           <BsGithub />

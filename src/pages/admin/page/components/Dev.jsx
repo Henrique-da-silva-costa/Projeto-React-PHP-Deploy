@@ -29,11 +29,14 @@ const Dev = () => {
       axios.get(url).then((res) => {
         setDados(res.data);
         setLoad(true);
-      }, 1000);
-    });
+      });
+    }, 1000);
   };
 
   const open = () => {
+    axios.get(url).then((res) => {
+      setDados(res.data);
+    });
     setOpenModal(styles.insert);
   };
 
@@ -63,7 +66,7 @@ const Dev = () => {
   return (
     <>
       <div className={styles.dev}>
-        <InsertDev mod={openModal} close={close} get={get} />
+        <InsertDev mod={openModal} close={close} get={get} op={open} />
         <h1>Desenvolvimento</h1>
         <button onClick={open} className={styles.bt}>
           Adicionar Elemento

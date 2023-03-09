@@ -1,6 +1,6 @@
 import styles from "./Inserir.module.css";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import InsertDev from "./components/InsertDev";
 
@@ -9,13 +9,19 @@ function Inserir() {
   const [descricao, setDescricao] = useState("");
   const [area, setArea] = useState("");
   const [img, setImg] = useState(null);
+  const [dados, setDados] = useState("");
+  const [msg, setMsg] = useState("");
+  const ImgUrl = "https://henriquedeveloper.com.br/PHP/admin/imagens.php";
+  const url = "https://henriquedeveloper.com.br/PHP/admin/insert.php";
   let navgate = useNavigate();
 
-  const url = "https://henriquedeveloper.com.br/PHP/admin/insert.php";
-  const submit = (e) => {
-    if (titulo == "" || descricao == "") {
-      setArea(styles.areaActive);
-    }
+  useEffect(() => {
+    axios.get(ImgUrl).then((res) => {
+      setDados(res.data);
+    });
+  }, []);
+
+  const post = () => {
     axios.post(
       url,
       {
@@ -29,6 +35,23 @@ function Inserir() {
         },
       }
     );
+  };
+  // const get = () => {
+  //   "";
+  // };
+
+  console.log(dados.length);
+  const submit = (e) => {
+    if (titulo == "" || descricao == "") {
+      setArea(styles.areaActive);
+    }
+
+    if (dados.length < 5 && titulo && descricao && img) {
+      post();
+    } else {
+      setMsg("limite maximo de 5 post");
+      navgate("/admin/inserir");
+    }
   };
 
   const imgInsert = () => {
@@ -68,6 +91,7 @@ function Inserir() {
             Inserir
           </button>
         </form>
+        <h1>{msg}</h1>
       </div>
     </>
   );
