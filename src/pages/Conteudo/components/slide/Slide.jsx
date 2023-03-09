@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Swiper, SwiperSlide, loop } from "swiper/react";
 import "swiper/css/navigation";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 // import { loop } from "swiper";
 import "swiper/css";
 import Loading from "../../../../Loading";
@@ -35,7 +36,14 @@ const Slide = () => {
       </h1>
       <article>
         <div style={{ maxWidth: "100%" }} className="">
-          <Swiper spaceBetween={300} slidesPerView={1} loop={true}>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={300}
+            slidesPerView={1}
+            loop={true}
+            navigation
+            pagination={{ clickable: true }}
+          >
             {dados
               ? dados.map((d) => {
                   return (
