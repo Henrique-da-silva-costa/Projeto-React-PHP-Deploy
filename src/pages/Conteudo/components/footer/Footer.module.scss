@@ -163,3 +163,10 @@ footer {
 }
 
 // email
+@media (min-width: 320px) and (max-width: 500px) {
+  form {
+    h1 {
+      font-size: x-large;
+    }
+  }
+}
