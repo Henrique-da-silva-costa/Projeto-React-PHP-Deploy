@@ -38,6 +38,7 @@ function InsertDev({ mod, close, get, op }) {
     setTimeout(() => {
       get();
     }, 300);
+
     setTitulo("");
     setDesc("");
   };

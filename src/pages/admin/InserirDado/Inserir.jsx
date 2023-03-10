@@ -36,9 +36,6 @@ function Inserir() {
       }
     );
   };
-  // const get = () => {
-  //   "";
-  // };
 
   console.log(dados.length);
   const submit = (e) => {

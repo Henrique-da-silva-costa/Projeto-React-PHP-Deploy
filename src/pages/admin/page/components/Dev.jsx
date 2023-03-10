@@ -11,7 +11,7 @@ const Dev = () => {
   const [dados, setDados] = useState("");
   const [openModal, setOpenModal] = useState(styles.insertOff);
   const [load, setLoad] = useState(false);
-
+  const [msg, setMsg] = useState("");
   const nav = useNavigate();
   const url = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
 
@@ -25,19 +25,25 @@ const Dev = () => {
   }, []);
 
   const get = () => {
-    setTimeout(() => {
-      axios.get(url).then((res) => {
-        setDados(res.data);
-        setLoad(true);
-      });
-    }, 1000);
+    axios.get(url).then((res) => {
+      setDados(res.data);
+      setLoad(true);
+    });
   };
 
   const open = () => {
-    axios.get(url).then((res) => {
-      setDados(res.data);
-    });
-    setOpenModal(styles.insert);
+    if (dados.length < 2) {
+      setTimeout(() => {
+        axios.get(url).then((res) => {
+          setDados(res.data);
+          setOpenModal(styles.insert);
+          setMsg("");
+        });
+      }, 300);
+    } else {
+      setMsg("Limite de dados atingido. Por favor delete um dado ");
+      setOpenModal(styles.insertOff);
+    }
   };
 
   const close = () => {
@@ -61,7 +67,7 @@ const Dev = () => {
         setDados(res.data);
         setLoad(true);
       });
-    }, 1000);
+    }, 300);
   };
   return (
     <>
@@ -71,6 +77,7 @@ const Dev = () => {
         <button onClick={open} className={styles.bt}>
           Adicionar Elemento
         </button>
+        <h1>{msg}</h1>
       </div>
       <div className={styles.infos}>
         {dados
