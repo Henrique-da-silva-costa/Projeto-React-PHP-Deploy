@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Cadastro.module.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,7 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 function Cadastro() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [val, setVal] = useState();
+  const [val, setVal] = useState("");
+  const [dado, setDado] = useState();
   const navgate = useNavigate();
   const url = "https://henriquedeveloper.com.br/PHP/login/insert.php";
 
@@ -17,21 +18,29 @@ function Cadastro() {
       setEmail(styles.inputactive);
       setSenha(styles.inputactive);
     }
+  };
 
+  const post = () => {
     const data = {
       senha,
       email,
     };
-
     axios.post(url, data);
-  };
-
-  const post = () => {
-    axios.post(url, {
-      senha,
-      email,
+    axios.get(url).then((res) => {
+      setDado(res.data);
+      console.log(dado);
     });
-    navgate("/login");
+
+    // if (dado) {
+    //   console.log(true);
+    // } else {
+    //   console.log(false);
+    // }
+    // if (dado) {
+    //   navgate("/cadastro");
+    // } else {
+    //   navgate("/login");
+    // }
   };
 
   return (
@@ -59,7 +68,7 @@ function Cadastro() {
               onChange={(e) => setSenha(e.target.value)}
             />
           </label>
-          <button type="submit" onClick={post}>
+          <button type="button" onClick={post}>
             Cadastrar
           </button>
         </form>
