@@ -8,8 +8,8 @@ function Edit() {
   const [titulo, setTitulo] = useState("");
   const [descricao, setDesc] = useState("");
   const [img, setImg] = useState("");
-  const [inputTitulo, setInputTitulo] = useState();
-  const [inputDesc, setInputDesc] = useState();
+  const [inputTitulo, setInputTitulo] = useState("");
+  const [inputDesc, setInputDesc] = useState("");
   const [url, setUrl] = useState("/admin");
 
   let navgate = useNavigate();
@@ -25,12 +25,8 @@ function Edit() {
       });
   }, []);
 
-  const submit = (e) => {
-    // e.preventDefault();
-  };
-
   const post = () => {
-    if (titulo == "" || descricao == "") {
+    if (inputTitulo == "" || inputDesc == "") {
       setUrl(`/admin/edit/${id}`);
     }
     axios.post(
@@ -46,17 +42,13 @@ function Edit() {
         },
       }
     );
-    if (titulo == "" || descricao == "") {
-      setInputTitulo(styles.input);
-      setInputDesc(styles.inputDesc);
-    }
     navgate(`/admin/`);
   };
 
   return (
     <div className={styles.edit}>
       <h1>Editar</h1>
-      <form onSubmit={submit}>
+      <form>
         <input
           type="file"
           name="img"

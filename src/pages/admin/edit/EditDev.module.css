@@ -28,6 +28,17 @@
   padding: 10px 20px;
 }
 
+.edit form label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  background-color: rgba(255, 0, 0, 0.712);
+}
+
 @media (min-width: 150px) and (max-width: 768px) {
   .edit {
     margin-top: 0;

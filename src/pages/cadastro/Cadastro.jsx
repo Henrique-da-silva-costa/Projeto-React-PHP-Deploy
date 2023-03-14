@@ -13,14 +13,14 @@ function Cadastro() {
 
   const submit = (e) => {
     e.preventDefault();
+  };
+
+  const post = () => {
     if (email == "" || senha == "") {
       setVal("campo vazio");
       setEmail(styles.inputactive);
       setSenha(styles.inputactive);
     }
-  };
-
-  const post = () => {
     const data = {
       senha,
       email,

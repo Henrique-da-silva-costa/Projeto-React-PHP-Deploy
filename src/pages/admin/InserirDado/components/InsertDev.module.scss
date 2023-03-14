@@ -18,6 +18,10 @@
     align-items: center;
   }
 }
+.label {
+  display: flex;
+  flex-direction: column;
+}
 .insertOff {
   height: 0;
   width: 0;
@@ -32,4 +36,8 @@
   font-size: 30px;
 }
 .dados {
+}
+.inputActive {
+  background-color: rgba(255, 0, 0, 0.548);
+  color: #fff;
 }

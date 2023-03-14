@@ -22,7 +22,17 @@
       border-radius: 5px;
       padding: 10px 20px;
     }
+    label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
+}
+
+.input {
+  background-color: rgba(255, 0, 0, 0.712);
 }
 
 @media (min-width: 150px) and (max-width: 768px) {

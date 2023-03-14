@@ -41,6 +41,7 @@ function Inserir() {
   const submit = (e) => {
     if (titulo == "" || descricao == "") {
       setArea(styles.areaActive);
+      setTitulo(styles.inputActive);
     }
 
     if (dados.length < 5 && titulo && descricao && img) {

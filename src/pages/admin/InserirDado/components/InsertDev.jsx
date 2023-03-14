@@ -6,6 +6,7 @@ import styles from "./InsertDev.module.css";
 function InsertDev({ mod, close, get, op }) {
   const [titulo, setTitulo] = useState("");
   const [descricao, setDesc] = useState("");
+  const [val, setVal] = useState("");
   const [modal, setModal] = useState(mod);
   const [dados, setDados] = useState("");
   const [msg, setMsg] = useState("");
@@ -27,6 +28,10 @@ function InsertDev({ mod, close, get, op }) {
 
   const post = (e) => {
     e.preventDefault();
+    if (titulo == "" || descricao == "") {
+      setVal("campo vazio");
+      op();
+    }
     very();
     if (dados.length < 2) {
       setMsg("");
@@ -55,19 +60,23 @@ function InsertDev({ mod, close, get, op }) {
       ></AiOutlineCloseCircle>
       <h1>Adione o Elemento</h1>
       <form onSubmit={post}>
-        <label>
+        <label className={styles.label}>
+          <span>Titulo</span>
           <input
+            className={titulo}
             type="text"
             name="titulo"
             value={titulo}
-            placeholder="titulo"
+            placeholder={val}
             onChange={(e) => setTitulo(e.target.value)}
           />
         </label>
-        <label>
+        <label className={styles.label}>
+          <span>descricao</span>
           <textarea
+            className={descricao}
             name="descricao"
-            placeholder="descrição"
+            placeholder={val}
             value={descricao}
             onChange={(e) => setDesc(e.target.value)}
           ></textarea>

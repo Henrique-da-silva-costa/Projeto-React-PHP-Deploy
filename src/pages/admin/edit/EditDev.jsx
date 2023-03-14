@@ -20,7 +20,11 @@ const EditDev = () => {
 
   const edit = (e) => {
     e.preventDefault();
-
+    if (titulo == "" || descricao == "") {
+      setTitulo(styles.input);
+      setDesc(styles.input);
+      navgate(`/admin/edit/${id}`);
+    }
     axios.post(
       `https://henriquedeveloper.com.br/PHP/admin/updatedev.php?id=${id}`,
       {
@@ -36,7 +40,9 @@ const EditDev = () => {
       <h1>Editar</h1>
       <form onSubmit={edit}>
         <label>
+          <span>titulo</span>
           <input
+            className={titulo}
             type="text"
             name="titulo"
             placeholder={dados ? dados[0].titulo : ""}
@@ -44,12 +50,14 @@ const EditDev = () => {
           />
         </label>
         <label>
-          <input
+          <span>descrição</span>
+          <textarea
+            className={descricao}
             type="text"
             name="descricao"
             placeholder={dados ? dados[0].descricao : ""}
             onChange={(e) => setDesc(e.target.value)}
-          />
+          ></textarea>
         </label>
         <button>Editar</button>
       </form>
