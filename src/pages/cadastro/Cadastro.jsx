@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import styles from "./Cadastro.module.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { valEmail } from "../../regex";
+import * as yup from "yup";
 
 function Cadastro() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [val, setVal] = useState("");
+  const [valEm, setValEm] = useState(false);
   const [dado, setDado] = useState();
+  const [msg, setMsg] = useState("");
+  const [msgEmail, setMsgEmail] = useState("");
   const navgate = useNavigate();
   const url = "https://henriquedeveloper.com.br/PHP/login/insert.php";
 
@@ -16,42 +21,49 @@ function Cadastro() {
   };
 
   const post = () => {
-    if (email == "" || senha == "") {
+    const regEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+    if (email === "" || senha === "") {
       setVal("campo vazio");
       setEmail(styles.inputactive);
       setSenha(styles.inputactive);
-    }
-    const data = {
-      senha,
-      email,
-    };
-    axios.post(url, data);
-    axios.get(url).then((res) => {
-      setDado(res.data);
-      console.log(dado);
-    });
+      navgate("/cadastro");
+    } else {
+      const data = {
+        senha,
+        email,
+      };
 
-    // if (dado) {
-    //   console.log(true);
-    // } else {
-    //   console.log(false);
-    // }
-    // if (dado) {
-    //   navgate("/cadastro");
-    // } else {
-    //   navgate("/login");
-    // }
+      if (senha.length < 6) {
+        setMsg("a senha deve ter no minimo 6 carateres");
+        axios.post(url, { "": "" });
+      } else {
+        setMsg("");
+      }
+      if (!regEx.test(email) && !senha.length < 6) {
+        axios.post(url, { "": "" });
+        navgate("/cadastro");
+        setMsgEmail("Tipo de E-mail invalido");
+      } else {
+        axios.post(url, data);
+        navgate("/login");
+        setMsgEmail("s");
+      }
+    }
   };
 
   return (
     <div className={styles.cadastro}>
       <h1>Cadastro</h1>
       <div className={styles.form}>
+        <span>{msg}</span>
+        <span>{msgEmail}</span>
         <form onSubmit={submit}>
           <label>
             <span>E-mail</span>
             <input
-              type="text"
+              type="email"
+              required
               name="email"
               placeholder={val}
               className={email}
