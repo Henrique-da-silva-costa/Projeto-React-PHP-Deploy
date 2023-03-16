@@ -25,30 +25,37 @@ function Edit() {
       });
   }, []);
 
-  const post = () => {
-    if (inputTitulo == "" || inputDesc == "") {
-      setUrl(`/admin/edit/${id}`);
-    }
-    axios.post(
-      `https://henriquedeveloper.com.br/PHP/admin/update.php?id=${param.id}`,
-      {
-        img,
-        titulo,
-        descricao,
-      },
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
+  const post = (e) => {
+    // e.preventDefault();
+
+    if (titulo && descricao) {
+      axios.post(
+        `https://henriquedeveloper.com.br/PHP/admin/update.php?id=${param.id}`,
+        {
+          img,
+          titulo,
+          descricao,
         },
-      }
-    );
-    navgate(`/admin/`);
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+    }
+  };
+
+  const edit = () => {
+    if (inputTitulo === "" || inputDesc === "") {
+      navgate(`/admin/edit/${id}`);
+    }
+    navgate("/admin");
   };
 
   return (
     <div className={styles.edit}>
       <h1>Editar</h1>
-      <form>
+      <form onSubmit={post}>
         <input
           type="file"
           name="img"
@@ -73,7 +80,7 @@ function Edit() {
           />
         </label>
         {/* <Link onClick={post} to="/admin"> */}
-        <button type="button" onClick={post}>
+        <button type="button" onClick={edit}>
           Editar
         </button>
         {/* </Link> */}

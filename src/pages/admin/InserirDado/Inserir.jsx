@@ -42,12 +42,15 @@ function Inserir() {
     if (titulo == "" || descricao == "") {
       setArea(styles.areaActive);
       setTitulo(styles.inputActive);
+      navgate("/admin/inserir");
     }
-
+    if (dados.length < 5) {
+      setMsg("limite maximo de 5 post");
+      navgate("/admin/inserir");
+    }
     if (dados.length < 5 && titulo && descricao && img) {
       post();
     } else {
-      setMsg("limite maximo de 5 post");
       navgate("/admin/inserir");
     }
   };

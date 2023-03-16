@@ -18,21 +18,28 @@ const EditDev = () => {
     });
   }, []);
 
-  const edit = (e) => {
-    e.preventDefault();
+  const edit = () => {
     if (titulo == "" || descricao == "") {
       setTitulo(styles.input);
       setDesc(styles.input);
-      navgate(`/admin/edit/${id}`);
+      navgate(`/admin/editdev/${id}`);
     }
-    axios.post(
-      `https://henriquedeveloper.com.br/PHP/admin/updatedev.php?id=${id}`,
-      {
-        titulo,
-        descricao,
-      }
-    );
-    navgate("/admin");
+    if (titulo && descricao) {
+      axios.post(
+        `https://henriquedeveloper.com.br/PHP/admin/updatedev.php?id=${id}`,
+        {
+          titulo,
+          descricao,
+        }
+      );
+      navgate("/admin");
+    } else {
+      navgate(`/admin/editdev/${id}`);
+    }
+  };
+
+  const editar = () => {
+    "";
   };
 
   return (
