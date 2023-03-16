@@ -4,6 +4,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
 }
 
 .edit form {

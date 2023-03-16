@@ -1,6 +1,9 @@
 .edit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
   display: flex;
-  margin-top: 3rem;
   justify-content: center;
   flex-direction: column;
   align-items: center;

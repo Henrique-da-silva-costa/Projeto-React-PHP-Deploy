@@ -1,5 +1,7 @@
 .home {
-  margin-top: 3rem;
+  position: absolute;
+  left: 0;
+  right: 0;
   height: 100%;
   display: flex;
   text-align: center;

@@ -1,5 +1,13 @@
 .cadastro {
   text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
   button {
     background-color: rgba(0, 4, 255, 0.541);
     border-radius: 5px;
