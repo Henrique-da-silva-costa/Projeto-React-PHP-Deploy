@@ -25,9 +25,7 @@ function Edit() {
       });
   }, []);
 
-  const post = (e) => {
-    // e.preventDefault();
-
+  const edit = () => {
     if (titulo && descricao) {
       axios.post(
         `https://henriquedeveloper.com.br/PHP/admin/update.php?id=${param.id}`,
@@ -42,20 +40,18 @@ function Edit() {
           },
         }
       );
-    }
-  };
-
-  const edit = () => {
-    if (inputTitulo === "" || inputDesc === "") {
+      navgate("/admin");
+    } else {
+      setInputTitulo(styles.input);
+      setInputDesc(styles.input);
       navgate(`/admin/edit/${id}`);
     }
-    navgate("/admin");
   };
 
   return (
     <div className={styles.edit}>
       <h1>Editar</h1>
-      <form onSubmit={post}>
+      <form>
         <input
           type="file"
           name="img"

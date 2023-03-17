@@ -18,8 +18,7 @@ const Email = ({ email, closs }) => {
       closs();
       setTitulo("");
       setMsg("");
-    }
-    if (titulo == "" || msg == "") {
+    } else {
       setVazio(styles.vazio);
     }
   };
@@ -39,7 +38,6 @@ const Email = ({ email, closs }) => {
             className={vazio}
             type="text"
             name="titulo"
-            value={titulo}
             placeholder="titulo"
             onChange={(e) => setTitulo(e.target.value)}
           />
@@ -49,7 +47,6 @@ const Email = ({ email, closs }) => {
             name="msg"
             placeholder="mensagem"
             className={vazio}
-            value={msg}
             onChange={(e) => setMsg(e.target.value)}
           ></textarea>
         </label>

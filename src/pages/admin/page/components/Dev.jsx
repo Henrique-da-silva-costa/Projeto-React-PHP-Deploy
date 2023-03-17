@@ -36,10 +36,10 @@ const Dev = () => {
       setTimeout(() => {
         axios.get(url).then((res) => {
           setDados(res.data);
-          setOpenModal(styles.insert);
-          setMsg("");
         });
       }, 300);
+      setOpenModal(styles.insert);
+      setMsg("");
     } else {
       setMsg("Limite de dados atingido. Por favor delete um dado ");
       setOpenModal(styles.insertOff);
