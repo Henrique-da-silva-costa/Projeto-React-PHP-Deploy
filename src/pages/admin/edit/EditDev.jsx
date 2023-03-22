@@ -27,9 +27,6 @@ const EditDev = () => {
 
   const edit = (e) => {
     e.preventDefault();
-  };
-
-  const editar = () => {
     if (titulo && descricao) {
       axios.post(urlUP, data);
       navgate("/admin");
@@ -68,9 +65,7 @@ const EditDev = () => {
           ></textarea>
           {/* <span>{msg}</span> */}
         </label>
-        <button type="button" onClick={editar}>
-          Editar
-        </button>
+        <button type="submit">Editar</button>
       </form>
     </div>
   );

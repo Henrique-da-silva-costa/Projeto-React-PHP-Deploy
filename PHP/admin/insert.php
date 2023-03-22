@@ -6,10 +6,10 @@ $dados = file_get_contents("php://input");
 
 $dados = json_decode($dados);
 
-$titulo = $_POST['titulo'];
-// $dados->titulo = filter_var($dados->titulo);
-// $dados->descricao = filter_var($dados->descricao);
-$descricao = $_POST['descricao'];
+// $titulo = $_POST['titulo'];
+$titulo = filter_var($dados->titulo);
+$descricao = filter_var($dados->descricao);
+// $descricao = $_POST['descricao'];
 
 print_r(isset($_FILES['img']));
 $extensao = strtolower(substr($_FILES['img']['name'], -4));

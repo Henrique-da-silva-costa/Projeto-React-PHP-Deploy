@@ -5,7 +5,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 const Email = ({ email, closs }) => {
   const [titulo, setTitulo] = useState("");
   const [vazio, setVazio] = useState("");
-  //   const [msgValue, setMsgValue] = useState("");
+  const [msgValue, setMsgValue] = useState("");
   const [msg, setMsg] = useState("");
 
   const post = (e) => {
@@ -15,12 +15,14 @@ const Email = ({ email, closs }) => {
         titulo,
         msg,
       });
+      setMsgValue("");
       closs();
-      setTitulo("");
-      setMsg("");
     } else {
       setVazio(styles.vazio);
+      setMsgValue("campo vazio");
     }
+    setTitulo("");
+    setMsg("");
   };
 
   const closed = () => {
@@ -34,18 +36,22 @@ const Email = ({ email, closs }) => {
       <form onSubmit={post}>
         <h1>Me envie um E-mail</h1>
         <label>
+          <span>Titulo</span>
           <input
             className={vazio}
             type="text"
+            value={titulo}
             name="titulo"
-            placeholder="titulo"
+            placeholder={msgValue}
             onChange={(e) => setTitulo(e.target.value)}
           />
         </label>
         <label>
+          <span>Mensagem</span>
           <textarea
             name="msg"
-            placeholder="mensagem"
+            value={msg}
+            placeholder={msgValue}
             className={vazio}
             onChange={(e) => setMsg(e.target.value)}
           ></textarea>

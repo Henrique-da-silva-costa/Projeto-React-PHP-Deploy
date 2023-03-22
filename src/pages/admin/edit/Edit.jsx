@@ -25,7 +25,8 @@ function Edit() {
       });
   }, []);
 
-  const edit = () => {
+  const edit = (e) => {
+    e.preventDefault();
     if (titulo && descricao) {
       axios.post(
         `https://henriquedeveloper.com.br/PHP/admin/update.php?id=${param.id}`,
@@ -51,7 +52,7 @@ function Edit() {
   return (
     <div className={styles.edit}>
       <h1>Editar</h1>
-      <form>
+      <form onSubmit={edit}>
         <input
           type="file"
           name="img"
@@ -75,11 +76,7 @@ function Edit() {
             onChange={(e) => setDesc(e.target.value)}
           />
         </label>
-        {/* <Link onClick={post} to="/admin"> */}
-        <button type="button" onClick={edit}>
-          Editar
-        </button>
-        {/* </Link> */}
+        <button type="submit">Editar</button>
       </form>
     </div>
   );

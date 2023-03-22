@@ -21,12 +21,12 @@ function Page() {
         setDados(res.data);
         setLoading(true);
       });
-    }, 1000);
+    }, 500);
   };
   useEffect(() => {
     setTimeout(() => {
       get();
-    }, 1000);
+    }, 500);
   }, []);
 
   const deletar = (e) => {

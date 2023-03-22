@@ -12,7 +12,9 @@ $dados = json_decode($dados);
 $titulo = filter_var($dados->titulo);
 $msg = filter_var($dados->msg);
 
-if ($titulo and $msg) {
+$pdr = "/^[a-z0-9]+$/i";
+
+if (preg_match($pdr, $titulo) and preg_match($pdr, $msg)) {
     $to = "henriquedasilvacosta@live.com";
     $subject = "$titulo";
     $message = "$msg";
@@ -27,3 +29,7 @@ if ($titulo and $msg) {
 
     echo 'ok';
 }
+
+// $pdr = "/^[a-z0-9]+$/i";
+
+// preg_match($pdr, $valor);

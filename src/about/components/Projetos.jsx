@@ -12,13 +12,13 @@ const Projetos = () => {
       <h1 style={{ textAlign: "center", margin: 0 }}>Meus projetos</h1>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={10}
+        spaceBetween={5}
         slidesPerView={1}
         loop={true}
         navigation
         pagination={{ clickable: true }}
       >
-        <article>
+        <article className={styles.art}>
           <SwiperSlide className={styles.arti}>
             <div className="">
               <img src={site} alt="" />

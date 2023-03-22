@@ -16,41 +16,43 @@ function Cadastro() {
   const navgate = useNavigate();
   const url = "https://henriquedeveloper.com.br/PHP/login/insert.php";
 
+  const posted =() =>{
+    const data = {
+      senha,
+      email,
+    };
+    axios.post(url, data).then((res)=>{
+      console.log(res.data)
+    });
+  }
   const submit = (e) => {
     e.preventDefault();
-  };
-
-  const post = () => {
     const regEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-
-    if (email === "" || senha === "") {
+    
+    if (senha.length < 6) {
+      setMsg("a senha deve ter no minimo 6 carateres");
+      setEmail(styles.inputactive);
+      setSenha(styles.inputactive);
+      axios.post(url, { "": "" });
+    } 
+   else if (!regEx.test(email) && !senha.length < 6) {
+      axios.post(url, { "": "" });
+      navgate("/cadastro");
+      setMsgEmail("Tipo de E-mail invalido ou e-mail já existente");
+    } 
+    else if (!email || !senha ) {
       setVal("campo vazio");
       setEmail(styles.inputactive);
       setSenha(styles.inputactive);
       navgate("/cadastro");
-    } else {
-      const data = {
-        senha,
-        email,
-      };
-
-      if (senha.length < 6) {
-        setMsg("a senha deve ter no minimo 6 carateres");
-        axios.post(url, { "": "" });
-      } else {
-        setMsg("");
-      }
-      if (!regEx.test(email) && !senha.length < 6) {
-        axios.post(url, { "": "" });
-        navgate("/cadastro");
-        setMsgEmail("Tipo de E-mail invalido");
-      } else {
-        axios.post(url, data);
-        navgate("/login");
-        setMsgEmail("s");
-      }
     }
+    else{
+      posted()
+      setMsg('');
+      navgate("/login")
+    } 
   };
+
 
   return (
     <div className={styles.cadastro}>
@@ -80,7 +82,7 @@ function Cadastro() {
               onChange={(e) => setSenha(e.target.value)}
             />
           </label>
-          <button type="button" onClick={post}>
+          <button type="submit" >
             Cadastrar
           </button>
         </form>
