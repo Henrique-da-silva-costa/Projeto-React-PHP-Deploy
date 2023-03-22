@@ -17,12 +17,12 @@ function Inserir() {
   const url = "https://henriquedeveloper.com.br/PHP/admin/insert.php";
   let navgate = useNavigate();
 
-  // useEffect(() => {
-  //   axios.get(ImgUrl).then((res) => {
-  //     setDados(res.data);
-  //   });
-  // }, []);
-  // console.log(dados.length)
+  useEffect(() => {
+    axios.get(ImgUrl).then((res) => {
+      setDados(res.data);
+    });
+  }, []);
+  console.log(dados.length)
 
   const sub = (e) => {
     axios.get(ImgUrl).then((res) => {
@@ -37,27 +37,24 @@ function Inserir() {
       navgate("/admin");
     }
     
-    setTimeout(() => {
-      
       if (dados.length >= 2) {
         navgate('/admin/inserir')
         setMsg('Limite maximo de dados atingido')
       }  else if (dados.length < 2) {
         navgate('/admin')
-        // axios.post(
-        //   {
-        //     img,
-        //     titulo,
-        //     descricao,
-        //   },
-        //   {
-        //     headers: {
-        //       "Content-Type": "multipart/form-data",
-        //     },
-        //   }
-        // );
+        axios.post(url,
+          {
+            img,
+            titulo,
+            descricao,
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
       }
-    }, 500);
 
     //   if (dados.length < 2) {
 
