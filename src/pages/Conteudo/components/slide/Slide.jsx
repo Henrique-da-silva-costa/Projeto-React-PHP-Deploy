@@ -8,9 +8,10 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 // import { loop } from "swiper";
 import "swiper/css";
 import Loading from "../../../../Loading";
+import Vazio from "../../../../Vazio";
 // import "swiper/css/loop";
 const Slide = () => {
-  const [dados, setDados] = useState([]);
+  const [dados, setDados] = useState('');
   const [removeLoading, setRemoveLoading] = useState(false);
   useEffect(() => {
     setTimeout(() => {
@@ -57,6 +58,7 @@ const Slide = () => {
                   );
                 })
               : ""}
+              {dados.length === 0 && removeLoading ? <Vazio/>: ''}
             {!removeLoading ? <Loading /> : ""}
           </Swiper>
         </div>

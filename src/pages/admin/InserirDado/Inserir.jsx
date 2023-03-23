@@ -22,27 +22,43 @@ function Inserir() {
       setDados(res.data);
     });
   }, []);
-  console.log(dados.length)
 
+  const regEx = /^[a-z 0-9]+$/i;
+  // console.log(dados.length)
+
+  // console.log(dados)
   const sub = (e) => {
     axios.get(ImgUrl).then((res) => {
       setDados(res.data);
     });
+
     e.preventDefault();
-    if (!titulo || !descricao) {
+    navgate("/admin");
+    if (!titulo || !descricao || !img) {
       navgate("/admin/inserir");
       setAreaInput(styles.areaActive);
       setTituloInput(styles.inputActive);
-    } else {
-      navgate("/admin");
+      setMsg('Há campos vazio ou Texto inapropriado')
     }
-    
-      if (dados.length >= 2) {
-        navgate('/admin/inserir')
-        setMsg('Limite maximo de dados atingido')
-      }  else if (dados.length < 2) {
+    else{
+      setMsg("")
+    }
+
+    if(!regEx.test(titulo) || !regEx.test(descricao)){
+navgate('/admin/inserir')
+// setMsg('')
+    }
+
+    if (dados.length >= 2) {
+      navgate("/admin/inserir");
+      setMsg("Limite maximo de dados atingido, Por favor delete um dado");
+      setTimeout(() => {
         navgate('/admin')
-        axios.post(url,
+      }, 4000);
+    } else if (dados.length < 2) {
+      axios
+        .post(
+          url,
           {
             img,
             titulo,
@@ -53,8 +69,9 @@ function Inserir() {
               "Content-Type": "multipart/form-data",
             },
           }
-        );
-      }
+        )
+        
+      } 
 
     //   if (dados.length < 2) {
 
@@ -69,7 +86,7 @@ function Inserir() {
     <>
       <div className={styles.inserir}>
         <h1>Adione o Elemento</h1>
-        <h1>{msg}</h1>
+        <h4>{msg}</h4>
         <form onSubmit={sub}>
           <input
             type="file"

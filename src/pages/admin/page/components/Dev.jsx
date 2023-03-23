@@ -6,6 +6,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../../Loading";
+import Vazio from "../../../../Vazio";
 
 const Dev = () => {
   const [dados, setDados] = useState("");
@@ -107,6 +108,7 @@ const Dev = () => {
             })
           : ""}
       </div>
+      {dados.length === 0 && load ? <Vazio/>: ''}
       {!load ? <Loading /> : ""}
     </>
   );

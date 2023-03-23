@@ -8,7 +8,7 @@ import Loading from "../../../../Loading";
 
 const Info = () => {
   const url = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
-  const [dados, setDados] = useState([]);
+  const [dados, setDados] = useState('');
   const navgate = useNavigate();
   const [load, setLoad] = useState(false);
   let param = useParams();

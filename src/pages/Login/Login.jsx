@@ -2,8 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import styles from "./Home.module.css";
 import { Await, Link, redirect, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { createBrowserHistory } from "history";
 
 const Login = () => {
   const [email, setEmail] = useState("");

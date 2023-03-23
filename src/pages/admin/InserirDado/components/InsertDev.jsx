@@ -7,6 +7,7 @@ function InsertDev({ mod, close, get, op }) {
   const [titulo, setTitulo] = useState("");
   const [descricao, setDesc] = useState("");
   const [val, setVal] = useState("");
+  const [err , setErr] = useState("")
   const [modal, setModal] = useState(mod);
   const [dados, setDados] = useState("");
   const [msg, setMsg] = useState("");
@@ -25,12 +26,20 @@ function InsertDev({ mod, close, get, op }) {
       setDados(res.data);
     });
   };
-
+  const regEx = /^[a-z 0-9]+$/i;
   const post = (e) => {
     e.preventDefault();
-    if (titulo == "" || descricao == "") {
+    if (!titulo || !descricao) {
       setVal("campo vazio");
       op();
+    }
+    if(!regEx.test(titulo) || !regEx.test(descricao)){
+setErr('Dado invvalido, Por favor digite um dado valido')
+setTimeout(() => {
+  setErr("")
+}, 3000);
+      op()
+
     }
     very();
     if (dados.length < 2) {
@@ -38,6 +47,9 @@ function InsertDev({ mod, close, get, op }) {
       ps();
     } else {
       setMsg("limite maximo de dados !");
+      setTimeout(() => {
+        setMsg("")
+      }, 3000);
       op();
     }
     setTimeout(() => {
@@ -59,6 +71,7 @@ function InsertDev({ mod, close, get, op }) {
         className={styles.close}
       ></AiOutlineCloseCircle>
       <h1>Adione o Elemento</h1>
+      <h3>{err}</h3>
       <form onSubmit={post}>
         <label className={styles.label}>
           <span>Titulo</span>

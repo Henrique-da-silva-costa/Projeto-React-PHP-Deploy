@@ -7,9 +7,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Dev from "./components/Dev";
 import Loading from "../../../Loading";
+import Vazio from "../../../Vazio";
 
 function Page() {
-  const [dados, setDados] = useState();
+  const [dados, setDados] = useState('');
   const [page, setPage] = useState(styles.page);
   const ImgUrl = "https://henriquedeveloper.com.br/PHP/admin/imagens.php";
   const [loading, setLoading] = useState(false);
@@ -47,8 +48,8 @@ function Page() {
   if (session == false || session == null) {
     return (
       <div className={styles.notLog}>
-        <h1>Usuario não existe</h1>
-        <button onClick={() => navgate("/login")}>Retornar Para Login</button>
+        <h1 style={{marginTop:'5rem'}}>Usuario não existe</h1>
+        <button style={{cursor:'pointer'}} onClick={() => navgate("/login")}>Retornar Para Login</button>
       </div>
     );
   } else {
@@ -63,7 +64,6 @@ function Page() {
         </Link>
 
         <h2>slide</h2>
-
         {dados
           ? dados.map((d) => {
               return (
@@ -90,8 +90,9 @@ function Page() {
                 </div>
               );
             })
-          : ""}
-        {!loading ? <Loading /> : ""}
+          : ''}
+        {dados.length === 0 && loading ? <Vazio/>: ''}
+        {!loading ? <Loading /> : ''}
         <Dev />
       </div>
     );

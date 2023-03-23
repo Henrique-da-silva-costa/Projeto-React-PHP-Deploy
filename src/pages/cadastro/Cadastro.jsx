@@ -35,17 +35,17 @@ function Cadastro() {
       setSenha(styles.inputactive);
       axios.post(url, { "": "" });
     } 
-   else if (!regEx.test(email) && !senha.length < 6) {
-      axios.post(url, { "": "" });
-      navgate("/cadastro");
-      setMsgEmail("Tipo de E-mail invalido ou e-mail já existente");
-    } 
     else if (!email || !senha ) {
       setVal("campo vazio");
       setEmail(styles.inputactive);
       setSenha(styles.inputactive);
       navgate("/cadastro");
     }
+   else if (!regEx.test(email) && !senha.length < 6) {
+      axios.post(url, { "": "" });
+      navgate("/cadastro");
+      setMsgEmail("Tipo de E-mail invalido ou e-mail já existente");
+    } 
     else{
       posted()
       setMsg('');
