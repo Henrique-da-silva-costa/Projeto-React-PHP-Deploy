@@ -34,7 +34,7 @@ function InsertDev({ mod, close, get, op }) {
       op();
     }
     if(!regEx.test(titulo) || !regEx.test(descricao)){
-setErr('Dado invvalido, Por favor digite um dado valido')
+setErr('Dado invalido, Por favor digite um dado valido')
 setTimeout(() => {
   setErr("")
 }, 3000);

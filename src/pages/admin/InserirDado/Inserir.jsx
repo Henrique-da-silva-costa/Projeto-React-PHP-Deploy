@@ -38,23 +38,23 @@ function Inserir() {
       navgate("/admin/inserir");
       setAreaInput(styles.areaActive);
       setTituloInput(styles.inputActive);
-      setMsg('Há campos vazio ou Texto inapropriado')
-    }
-    else{
       setMsg("")
+      setMsg('Há campos vazio')
+    }
+    
+    else if(!regEx.test(titulo) || !regEx.test(descricao)){
+      setMsg('Texto indesejado')
+navgate('/admin/inserir')
+
     }
 
-    if(!regEx.test(titulo) || !regEx.test(descricao)){
-navgate('/admin/inserir')
-// setMsg('')
-    }
 
     if (dados.length >= 2) {
       navgate("/admin/inserir");
-      setMsg("Limite maximo de dados atingido, Por favor delete um dado");
+      setMsg("Limite maximo de dados atingido, Por favor exclua um dado");
       setTimeout(() => {
         navgate('/admin')
-      }, 4000);
+      }, 3500);
     } else if (dados.length < 2) {
       axios
         .post(
@@ -85,7 +85,7 @@ navgate('/admin/inserir')
   return (
     <>
       <div className={styles.inserir}>
-        <h1>Adione o Elemento</h1>
+        <h1>Adicione o Elemento</h1>
         <h4>{msg}</h4>
         <form onSubmit={sub}>
           <input
