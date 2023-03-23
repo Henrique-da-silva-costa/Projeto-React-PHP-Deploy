@@ -30,16 +30,13 @@ function InsertDev({ mod, close, get, op }) {
   const post = (e) => {
     e.preventDefault();
     if (!titulo || !descricao) {
-      setVal("campo vazio");
+      setErr("campo vazio");
       op();
     }
-    if(!regEx.test(titulo) || !regEx.test(descricao)){
+   else if(!regEx.test(titulo) || !regEx.test(descricao)){
 setErr('Dado invalido, Por favor digite um dado valido')
-setTimeout(() => {
-  setErr("")
-}, 3000);
+  // setErr("")
       op()
-
     }
     very();
     if (dados.length < 2) {

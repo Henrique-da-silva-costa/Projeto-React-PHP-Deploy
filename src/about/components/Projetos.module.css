@@ -26,6 +26,11 @@
   transition: all 0.4s;
 }
 
+.arti button:hover {
+  background-color: #fff;
+  transition: all .4s;
+}
+
 .arti a {
   color: #000;
   text-decoration: none;
