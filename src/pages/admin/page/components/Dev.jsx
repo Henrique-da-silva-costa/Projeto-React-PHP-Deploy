@@ -7,6 +7,7 @@ import { FaEdit } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../../Loading";
 import Vazio from "../../../../Vazio";
+import Conf from "../../../../Conf";
 
 const Dev = () => {
   const [dados, setDados] = useState("");
@@ -15,6 +16,16 @@ const Dev = () => {
   const [msg, setMsg] = useState("");
   const nav = useNavigate();
   const url = "https://henriquedeveloper.com.br/PHP/admin/dev.php";
+
+  const [val, setVal] = useState(styles.close);
+  const [id, setId] = useState("");
+  const op = (e) => {
+    setId(e);
+    setVal(styles.confirm);
+  };
+  const cl = () => {
+    setVal(styles.close);
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -57,7 +68,7 @@ const Dev = () => {
 
   const deletar = (e) => {
     axios.delete(
-      `https://henriquedeveloper.com.br/PHP/admin/deletedev.php?id=${e}`,
+      `https://henriquedeveloper.com.br/PHP/admin/deletedev.php?id=${id}`,
       {
         titulo: "titulo",
         descricao: "descricao",
@@ -73,6 +84,7 @@ const Dev = () => {
   return (
     <>
       <div className={styles.dev}>
+        <Conf val={val} closed={cl} del={deletar} />
         <InsertDev mod={openModal} close={close} get={get} op={open} />
         <h1>Desenvolvimento</h1>
         <button onClick={open} className={styles.bt}>
@@ -96,10 +108,7 @@ const Dev = () => {
                     >
                       <FaEdit className={styles.edit} />
                     </button>
-                    <button
-                      onClick={() => deletar(d.id)}
-                      className={styles.btIcon}
-                    >
+                    <button onClick={() => op(d.id)} className={styles.btIcon}>
                       <AiFillDelete className={styles.delete} />
                     </button>
                   </div>
@@ -108,7 +117,7 @@ const Dev = () => {
             })
           : ""}
       </div>
-      {dados.length === 0 && load ? <Vazio/>: ''}
+      {dados.length === 0 && load ? <Vazio /> : ""}
       {!load ? <Loading /> : ""}
     </>
   );

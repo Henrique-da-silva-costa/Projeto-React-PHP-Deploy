@@ -1,3 +1,5 @@
+
+
 .page {
   margin-top: 3rem;
   text-align: center;
@@ -11,6 +13,11 @@
   a {
     text-decoration: none;
   }
+}
+.admin{
+  margin-bottom: 0rem;
+  width: 100%;
+  box-shadow: 6px 3px 16px;
 }
 .imgConteudo {
   display: flex;
@@ -92,3 +99,46 @@
     }
   }
 }
+
+// modal
+// modal
+// modal
+// modal
+
+.confirm{
+  transition: all 0.4s;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.712);
+  z-index: 5;
+  color: #fff;
+  opacity: 1;
+}
+.close{
+  transition: all 0.4s;
+  position: fixed;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.712);
+  z-index: -1;
+  color: #fff;
+}
+
+// modal
+// modal
+// modal
+// modal

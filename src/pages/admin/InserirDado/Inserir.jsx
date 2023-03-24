@@ -23,7 +23,7 @@ function Inserir() {
     });
   }, []);
 
-  const regEx = /^[a-z 0-9]+$/i;
+  const regEx = /^[a-z 0-9 à-ú À-Ú]+$/i;
   // console.log(dados.length)
 
   // console.log(dados)
@@ -38,40 +38,34 @@ function Inserir() {
       navgate("/admin/inserir");
       setAreaInput(styles.areaActive);
       setTituloInput(styles.inputActive);
-      setMsg("")
-      setMsg('Há campos vazio')
+      setMsg("");
+      setMsg("Há campos vazio");
+    } else if (!regEx.test(titulo) || !regEx.test(descricao)) {
+      setMsg("Texto indesejado");
+      navgate("/admin/inserir");
     }
-    
-    else if(!regEx.test(titulo) || !regEx.test(descricao)){
-      setMsg('Texto indesejado')
-navgate('/admin/inserir')
-
-    }
-
 
     if (dados.length >= 2) {
       navgate("/admin/inserir");
       setMsg("Limite maximo de dados atingido, Por favor exclua um dado");
       setTimeout(() => {
-        navgate('/admin')
+        navgate("/admin");
       }, 3500);
     } else if (dados.length < 2) {
-      axios
-        .post(
-          url,
-          {
-            img,
-            titulo,
-            descricao,
+      axios.post(
+        url,
+        {
+          img,
+          titulo,
+          descricao,
+        },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
           },
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        )
-        
-      } 
+        }
+      );
+    }
 
     //   if (dados.length < 2) {
 
@@ -88,12 +82,15 @@ navgate('/admin/inserir')
         <h1>Adicione o Elemento</h1>
         <h4>{msg}</h4>
         <form onSubmit={sub}>
-          <input
-            type="file"
-            name="img"
-            accept="image/*"
-            onChange={(e) => setImg(e.target.files[0])}
-          />
+          <label>
+            <span>Imagem</span>
+            <input
+              type="file"
+              name="img"
+              accept="image/*"
+              onChange={(e) => setImg(e.target.files[0])}
+            />
+          </label>
           <label>
             <span>Titulo</span>
             <input
@@ -105,7 +102,7 @@ navgate('/admin/inserir')
             />
           </label>
           <label>
-            <span>descrição</span>
+            <span>Descrição</span>
             <textarea
               className={areaInput}
               name="descricao"

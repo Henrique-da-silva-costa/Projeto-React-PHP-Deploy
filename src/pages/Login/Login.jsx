@@ -4,7 +4,9 @@ import styles from "./Home.module.css";
 import { Await, Link, redirect, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [emailI, setEmailI] = useState("");
   const [email, setEmail] = useState("");
+  const [senhaI, setSenhaI] = useState("");
   const [senha, setSenha] = useState("");
   const [login, setLogin] = useState("");
   const [msg, setMsg] = useState("");
@@ -23,21 +25,21 @@ const Login = () => {
   const submit = async (ev) => {
     ev.preventDefault();
     const auth = sessionStorage.getItem("session");
-    if (true) {
-      setLogin("/admin");
-    } else {
-      setLogin("/");
-    }
+    // if (true) {
+    //   setLogin("/admin");
+    // } else {
+    //   setLogin("/");
+    // }
     const { data } = await axios.post(
       "https://henriquedeveloper.com.br/PHP/login/val.php",
       userDdados
     );
     sessionStorage.setItem("session", data);
 
-    if (email == "" || senha == "") {
+    if (!email || !senha) {
       setMsg("campo vazio");
-      setEmail(styles.inputActive);
-      setSenha(styles.inputActive);
+      setEmailI(styles.inputActive);
+      setSenhaI(styles.inputActive);
       nav("/login");
     } else {
       nav("/admin");
@@ -55,7 +57,7 @@ const Login = () => {
               type="text"
               name="email"
               placeholder={msg}
-              className={email}
+              className={emailI}
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
@@ -65,7 +67,7 @@ const Login = () => {
               type="password"
               name="senha"
               placeholder={msg}
-              className={senha}
+              className={senhaI}
               onChange={(e) => setSenha(e.target.value)}
             />
           </label>

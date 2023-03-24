@@ -8,13 +8,29 @@ import { useState } from "react";
 import Dev from "./components/Dev";
 import Loading from "../../../Loading";
 import Vazio from "../../../Vazio";
+import Conf from "../../../Conf";
 
 function Page() {
-  const [dados, setDados] = useState('');
+  const [dados, setDados] = useState("");
   const [page, setPage] = useState(styles.page);
   const ImgUrl = "https://henriquedeveloper.com.br/PHP/admin/imagens.php";
   const [loading, setLoading] = useState(false);
   const navgate = useNavigate();
+  const [id, setId] = useState("");
+  // modal
+
+  const [op, setOp] = useState(styles.close);
+
+  const open = (e) => {
+    setId(e);
+    setOp(styles.confirm);
+  };
+
+  const closs = () => {
+    setOp(styles.close);
+  };
+
+  // modal
 
   const get = () => {
     setTimeout(() => {
@@ -28,12 +44,18 @@ function Page() {
     setTimeout(() => {
       get();
     }, 500);
+
+    setTimeout(() => {
+      if (!session) {
+        navgate("/login");
+      }
+    }, 1000);
   }, []);
 
-  const deletar = (e) => {
+  const deletar = () => {
     setTimeout(() => {
       axios.delete(
-        `https://henriquedeveloper.com.br/PHP/admin/delete.php?id=${e}`,
+        `https://henriquedeveloper.com.br/PHP/admin/delete.php?id=${id}`,
         {
           img: "img",
           titulo: "titulo",
@@ -48,22 +70,22 @@ function Page() {
   if (session == false || session == null) {
     return (
       <div className={styles.notLog}>
-        <h1 style={{marginTop:'5rem'}}>Usuario não existe</h1>
-        <button style={{cursor:'pointer'}} onClick={() => navgate("/login")}>Retornar Para Login</button>
+        <h1 style={{ marginTop: "5rem" }}>Usuario não existe</h1>
       </div>
     );
   } else {
     return (
       <div className={page}>
-        <h1>page</h1>
-
-        <Link to="/admin/inserir">
-          <div className={styles.adicionarAll}>
-            <button className={styles.adicionar}>Adicionar Elemento</button>
-          </div>
-        </Link>
-
-        <h2>slide</h2>
+        <Conf val={op} closed={closs} del={deletar} />
+        <h1 className={styles.admin}>Admin</h1>
+        <div>
+          <h1>Slide</h1>
+          <Link to="/admin/inserir">
+            <div className={styles.adicionarAll}>
+              <button className={styles.adicionar}>Adicionar Elemento</button>
+            </div>
+          </Link>
+        </div>
         {dados
           ? dados.map((d) => {
               return (
@@ -80,7 +102,7 @@ function Page() {
                         </button>
                       </Link>
                       <button
-                        onClick={() => deletar(d.id)}
+                        onClick={() => open(d.id)}
                         className={styles.excluir}
                       >
                         <AiFillDelete />
@@ -90,9 +112,9 @@ function Page() {
                 </div>
               );
             })
-          : ''}
-        {dados.length === 0 && loading ? <Vazio/>: ''}
-        {!loading ? <Loading /> : ''}
+          : ""}
+        {dados.length === 0 && loading ? <Vazio /> : ""}
+        {!loading ? <Loading /> : ""}
         <Dev />
       </div>
     );

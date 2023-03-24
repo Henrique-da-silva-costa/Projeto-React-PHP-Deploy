@@ -26,7 +26,7 @@ function InsertDev({ mod, close, get, op }) {
       setDados(res.data);
     });
   };
-  const regEx = /^[a-z 0-9]+$/i;
+  const regEx = /^[a-z 0-9 à-ú À-Ú]+$/i;
   const post = (e) => {
     e.preventDefault();
     if (!titulo || !descricao) {

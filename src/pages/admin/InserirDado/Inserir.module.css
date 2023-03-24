@@ -40,6 +40,13 @@
   width: 300px;
 }
 
+.inserir form textarea {
+  background: none;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
 .inserir form label {
   display: flex;
   flex-direction: column;
@@ -51,5 +58,5 @@
 }
 
 .areaActive {
-  background-color: rgba(255, 0, 0, 0.521);
+  background-color: rgba(255, 0, 0, 0.521) !important;
 }

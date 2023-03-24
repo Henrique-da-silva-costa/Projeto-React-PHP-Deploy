@@ -8,6 +8,7 @@ const EditDev = () => {
   const [descricao, setDesc] = useState("");
   const [inp, setInp] = useState("");
   const [dados, setDados] = useState("");
+  const regEx = /^[a-z 0-9 à-ú À-Ú]+$/i;
   const [msg, setMsg] = useState("");
   let navgate = useNavigate();
   let param = useParams();
@@ -27,21 +28,23 @@ const EditDev = () => {
 
   const edit = (e) => {
     e.preventDefault();
-    if (titulo && descricao) {
-      axios.post(urlUP, data);
-      navgate("/admin");
-      setInp("");
-    } else {
-      // setTitulo(styles.input);
-      // setDesc(styles.input);
-      setInp(styles.input);
+    navgate("/admin");
+    if (!titulo || !descricao) {
       navgate(`/admin/editdev/${id}`);
+      setInp(styles.input);
+      setMsg("Há campo vazio");
+    } else if (!regEx.test(titulo) || !regEx.test(descricao)) {
+      navgate(`/admin/editdev/${id}`);
+      setMsg("Texto invalido");
+    } else {
+      axios.post(urlUP, data);
     }
   };
 
   return (
     <div className={styles.edit}>
       <h1>Editar</h1>
+      <h4>{msg}</h4>
       <form onSubmit={edit}>
         <label>
           <span>titulo</span>
