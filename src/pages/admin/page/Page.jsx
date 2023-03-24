@@ -39,12 +39,10 @@ function Page() {
       });
       setLoading(true);
       // navgate("/admin");
-    }, 300);
+    }, 1500);
   };
   useEffect(() => {
-    setTimeout(() => {
-      get();
-    }, 1000);
+    get();
 
     setTimeout(() => {
       if (!session) {
