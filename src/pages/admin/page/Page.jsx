@@ -36,14 +36,15 @@ function Page() {
     setTimeout(() => {
       axios.get(ImgUrl).then((res) => {
         setDados(res.data);
-        setLoading(true);
       });
-    }, 500);
+      setLoading(true);
+      // navgate("/admin");
+    }, 300);
   };
   useEffect(() => {
     setTimeout(() => {
       get();
-    }, 500);
+    }, 1000);
 
     setTimeout(() => {
       if (!session) {
@@ -53,17 +54,17 @@ function Page() {
   }, []);
 
   const deletar = () => {
-    setTimeout(() => {
-      axios.delete(
-        `https://henriquedeveloper.com.br/PHP/admin/delete.php?id=${id}`,
-        {
-          img: "img",
-          titulo: "titulo",
-          descricao: "descricao",
-        }
-      );
-      get();
-    }, 300);
+    // setTimeout(() => {
+    axios.delete(
+      `https://henriquedeveloper.com.br/PHP/admin/delete.php?id=${id}`,
+      {
+        img: "img",
+        titulo: "titulo",
+        descricao: "descricao",
+      }
+    );
+    get();
+    // }, 300);
   };
 
   const session = sessionStorage.getItem("session");

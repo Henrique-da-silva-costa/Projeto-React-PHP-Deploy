@@ -33,7 +33,7 @@ const Dev = () => {
         setDados(res.data);
         setLoad(true);
       });
-    }, 1000);
+    }, 500);
   }, []);
 
   const get = () => {
