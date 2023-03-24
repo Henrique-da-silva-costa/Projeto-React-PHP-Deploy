@@ -11,7 +11,7 @@ function Edit() {
   const [inputTitulo, setInputTitulo] = useState("");
   const [inputDesc, setInputDesc] = useState("");
   const [url, setUrl] = useState("/admin");
-  const [msg , setMsg] = useState('');
+  const [msg, setMsg] = useState("");
   const regEx = /^[a-z 0-9 à-ú À-Ú]+$/i;
   let navgate = useNavigate();
   let param = useParams();
@@ -26,49 +26,52 @@ function Edit() {
       });
   }, []);
 
-const post = () =>{
-  axios.post(
-    `https://henriquedeveloper.com.br/PHP/admin/update.php?id=${param.id}`,
-    {
-      img,
-      titulo,
-      descricao,
-    },
-    {
-      headers: {
-        "Content-Type": "multipart/form-data",
+  const post = () => {
+    axios.post(
+      `https://henriquedeveloper.com.br/PHP/admin/update.php?id=${param.id}`,
+      {
+        img,
+        titulo,
+        descricao,
       },
-    }
-  );
-}
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+  };
 
   const edit = (e) => {
     e.preventDefault();
 
     navgate("/admin");
     if (!titulo || !descricao || !img) {
-      setMsg("Há campo vazio")
+      setMsg("Há campo vazio");
       setInputTitulo(styles.input);
       setInputDesc(styles.input);
-      navgate(`/admin/edit/${id}`)
+      navgate(`/admin/edit/${id}`);
     } else if (!regEx.test(titulo) || !regEx.test(descricao)) {
-      setMsg("Texto inapropriado")
+      setMsg("Texto inapropriado");
       navgate(`/admin/edit/${id}`);
     } else {
-      post()
+      post();
     }
   };
 
   return (
     <div className={styles.edit}>
       <h1>Editar</h1>
-      <h4>{msg}</h4>
+      <h4 style={{ margin: 0 }}>{msg}</h4>
       <form onSubmit={edit}>
-        <input
-          type="file"
-          name="img"
-          onChange={(e) => setImg(e.target.files[0])}
-        />
+        <label>
+          <span>Imagem</span>
+          <input
+            type="file"
+            name="img"
+            onChange={(e) => setImg(e.target.files[0])}
+          />
+        </label>
         <label>
           <span>Titulo</span>
           <input

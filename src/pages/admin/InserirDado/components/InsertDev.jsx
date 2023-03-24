@@ -7,7 +7,7 @@ function InsertDev({ mod, close, get, op }) {
   const [titulo, setTitulo] = useState("");
   const [descricao, setDesc] = useState("");
   const [val, setVal] = useState("");
-  const [err , setErr] = useState("")
+  const [err, setErr] = useState("");
   const [modal, setModal] = useState(mod);
   const [dados, setDados] = useState("");
   const [msg, setMsg] = useState("");
@@ -32,11 +32,10 @@ function InsertDev({ mod, close, get, op }) {
     if (!titulo || !descricao) {
       setErr("campo vazio");
       op();
-    }
-   else if(!regEx.test(titulo) || !regEx.test(descricao)){
-setErr('Dado invalido, Por favor digite um dado valido')
-  // setErr("")
-      op()
+    } else if (!regEx.test(titulo) || !regEx.test(descricao)) {
+      setErr("Dado invalido, Por favor digite um dado valido");
+      // setErr("")
+      op();
     }
     very();
     if (dados.length < 2) {
@@ -45,7 +44,7 @@ setErr('Dado invalido, Por favor digite um dado valido')
     } else {
       setMsg("limite maximo de dados !");
       setTimeout(() => {
-        setMsg("")
+        setMsg("");
       }, 3000);
       op();
     }
@@ -67,7 +66,7 @@ setErr('Dado invalido, Por favor digite um dado valido')
         onClick={getdado}
         className={styles.close}
       ></AiOutlineCloseCircle>
-      <h1>Adione o Elemento</h1>
+      <h1>Adicione o Elemento</h1>
       <h3>{err}</h3>
       <form onSubmit={post}>
         <label className={styles.label}>
