@@ -125,7 +125,7 @@
     input {
       border-radius: 5px;
       outline: none;
-      border: 1px solid black;
+      border: 1px solid rgb(255, 255, 255);
       background: none;
       color: #fff;
       &::placeholder {
@@ -135,7 +135,7 @@
     textarea {
       border-radius: 5px;
       outline: none;
-      border: 1px solid black;
+      border: 1px solid rgb(255, 255, 255);
       background: none;
       color: #fff;
       &::placeholder {
@@ -147,7 +147,7 @@
       padding: 10px 30px;
       background: none;
       color: #fff;
-      border: 1px solid black;
+      border: 1px solid rgb(255, 255, 255);
       outline: none;
     }
   }

@@ -47,7 +47,7 @@
 }
 
 .input::placeholder {
-  color: black;
+  color: rgba(255, 255, 255, 0.692);
 }
 
 .inputDesc {
@@ -55,7 +55,7 @@
 }
 
 .inputDesc::placeholder {
-  color: black;
+  color: rgba(255, 255, 255, 0.719);
 }
 
 @media (min-width: 150px) and (max-width: 768px) {
