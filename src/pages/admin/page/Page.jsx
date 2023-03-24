@@ -39,7 +39,7 @@ function Page() {
       });
       setLoading(true);
       // navgate("/admin");
-    }, 1500);
+    }, 2000);
   };
   useEffect(() => {
     get();
@@ -61,7 +61,11 @@ function Page() {
         descricao: "descricao",
       }
     );
-    get();
+    setTimeout(() => {
+      axios.get(ImgUrl).then((res) => {
+        setDados(res.data);
+      });
+    }, 200);
     // }, 300);
   };
 
