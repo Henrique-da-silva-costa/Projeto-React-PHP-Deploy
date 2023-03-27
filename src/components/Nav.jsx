@@ -34,7 +34,7 @@ const Nav = () => {
         </button>
         <div onClick={() => nav("/login")} className={styles.admin}>
           <RiAdminLine />
-          <p>ADIMIN</p>
+          <p>ADMIN</p>
         </div>
         <div onClick={() => nav("/")} className={styles.home}>
           <AiOutlineHome />
