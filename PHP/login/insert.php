@@ -5,8 +5,17 @@ $dados = file_get_contents("php://input");
 
 $dados = json_decode($dados);
 
-$email = filter_var($dados->email, FILTER_SANITIZE_EMAIL);
+$email = filter_var($dados->email , FILTER_SANITIZE_EMAIL);
 $senha = filter_var($dados->senha);
+
+$lenSenha = strlen($senha);
+
+$pdr = "/^[a-z0-9]+$/i";
+    
+$insert = $conn->prepare('INSERT INTO user (senha , email) VALUES (:senha, :email) ');
+
+$insert->bindParam(":email", $email);
+$insert->bindParam(":senha", $senha);
 
 $select = $conn->prepare("SELECT * FROM user WHERE email = :email and senha = :senha");
 
@@ -17,15 +26,12 @@ $select->execute();
 
 $user = $select->fetchAll();
 
-$insert = $conn->prepare('INSERT INTO user (senha , email) VALUES (:senha, :email) ');
+$msg = '';
 
-$insert->bindParam(":email", $email);
-$insert->bindParam(":senha", $senha);
-
-
-if ($user) {
-    echo (json_encode('existe'));
+if ($user || $lenSenha < 6 || !preg_match($pdr , $senha)) {
+$msg = true;
 } else {
-    echo (json_encode('false'));
+$msg = false;
     $insert->execute();
 }
+echo json_encode($msg);

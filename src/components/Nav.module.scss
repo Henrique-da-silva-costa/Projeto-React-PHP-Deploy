@@ -77,6 +77,7 @@
 .open {
   display: none;
   position: fixed;
+  transition: 0.4s all;
   z-index: 3;
   background: none;
   outline: none;
@@ -104,11 +105,14 @@
   .navClose {
     height: 0px;
     transition: 0.4s all;
+    width: 0px;
+    flex-direction: column;
   }
   .nav {
-    width: auto !important;
-    height: 100% !important;
-    flex-direction: column !important;
+    width: 40px ;
+    transition: 0.4s all;
+    height: 100% ;
+    flex-direction: column ;
     overflow: hidden;
     justify-content: flex-start;
     gap: 1rem;

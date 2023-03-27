@@ -14,6 +14,8 @@ $dados = json_decode($dados);
 $titulo = $_POST['titulo'];
 $descricao = $_POST['descricao'];
 
+$reg = "/^[a-z 0-9 à-ú À-Ú]+$/i";
+
 $select = $conn->prepare("SELECT * FROM dados WHERE id = $id");
 
 if ($id) {
@@ -27,7 +29,7 @@ $extensao = strtolower(substr($_FILES['img']['name'], -4));
 $novo_nome = md5(time()) . $extensao;
 
 
-$urlImg = 'http://localhost:1999/admin/imgs/' . $novo_nome;
+$urlImg = 'https://henriquedeveloper.com.br/PHP/admin/imgs/' . $novo_nome;
 
 $diretorio = 'imgs/';
 move_uploaded_file($_FILES['img']['tmp_name'], $diretorio . $novo_nome);
@@ -37,6 +39,8 @@ $update = $conn->prepare("UPDATE img set titulo = :titulo, descricao = :descrica
 $update->bindParam(":titulo", $titulo);
 $update->bindParam(":descricao", $descricao);
 $update->bindParam(":img", $urlImg);
-if ($titulo and $descricao) {
+if (preg_match($reg, $titulo) and preg_match($reg, $descricao)) {
     $update->execute();
+}
+
 }
