@@ -33,7 +33,7 @@ function InsertDev({ mod, close, get, op }) {
       setErr("campo vazio");
       op();
     } else if (!regEx.test(titulo) || !regEx.test(descricao)) {
-      setErr("Dado invalido, Por favor digite um dado valido");
+      setErr("Dado inválido, Por favor digite um dado valido");
       // setErr("")
       op();
     }
