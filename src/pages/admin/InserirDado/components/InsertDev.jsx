@@ -81,7 +81,7 @@ function InsertDev({ mod, close, get, op }) {
           />
         </label>
         <label className={styles.label}>
-          <span>descricao</span>
+          <span>Descrição</span>
           <textarea
             className={descricao}
             name="descricao"

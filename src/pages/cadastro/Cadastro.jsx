@@ -12,53 +12,53 @@ function Cadastro() {
   const [valEm, setValEm] = useState(false);
   const [dado, setDado] = useState();
   const [msg, setMsg] = useState("");
+  const [msgs, setMsgs] = useState("");
   const [msgEmail, setMsgEmail] = useState("");
   const navgate = useNavigate();
   const url = "https://henriquedeveloper.com.br/PHP/login/insert.php";
 
-  const posted =() =>{
+  const posted = () => {
     const data = {
       senha,
       email,
     };
-    axios.post(url, data).then((res)=>{
-      console.log(res.data)
+    axios.post(url, data).then((res) => {
+      console.log(res.data);
     });
-  }
+  };
   const submit = (e) => {
     e.preventDefault();
     const regEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    
-    if (senha.length < 6) {
-      setMsg("a senha deve ter no minimo 6 carateres");
+    const regExSenha = /^[a-z0-9]+$/i;
+
+    if (senha.length < 6 || !regExSenha.test(senha)) {
+      setMsg("a senha deve ter no minimo 6 caracteres");
+      setMsgs("Formato de senha invalido, digite uma senha valida");
       setEmail(styles.inputactive);
       setSenha(styles.inputactive);
       axios.post(url, { "": "" });
-    } 
-    else if (!email || !senha ) {
+    } else if (!email || !senha) {
       setVal("campo vazio");
       setEmail(styles.inputactive);
       setSenha(styles.inputactive);
       navgate("/cadastro");
-    }
-   else if (!regEx.test(email) && !senha.length < 6) {
+    } else if (!regEx.test(email)) {
       axios.post(url, { "": "" });
       navgate("/cadastro");
       setMsgEmail("Tipo de E-mail invalido ou e-mail já existente");
-    } 
-    else{
-      posted()
-      setMsg('');
-      navgate("/login")
-    } 
+    } else {
+      posted();
+      setMsg("");
+      navgate("/login");
+    }
   };
-
 
   return (
     <div className={styles.cadastro}>
       <h1>Cadastro</h1>
       <div className={styles.form}>
         <span>{msg}</span>
+        <span>{msgs}</span>
         <span>{msgEmail}</span>
         <form onSubmit={submit}>
           <label>
@@ -82,9 +82,7 @@ function Cadastro() {
               onChange={(e) => setSenha(e.target.value)}
             />
           </label>
-          <button type="submit" >
-            Cadastrar
-          </button>
+          <button type="submit">Cadastrar</button>
         </form>
       </div>
     </div>
