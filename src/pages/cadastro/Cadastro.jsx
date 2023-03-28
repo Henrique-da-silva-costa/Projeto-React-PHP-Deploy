@@ -47,6 +47,7 @@ function Cadastro() {
       navgate("/cadastro");
       setMsgEmail("Tipo de E-mail invalido ou e-mail já existente");
     } else {
+      alert("Cadastro realizado com sucesso!");
       posted();
       setMsg("");
       navgate("/login");
