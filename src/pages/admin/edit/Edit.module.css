@@ -8,29 +8,24 @@
   flex-direction: column;
   align-items: center;
 }
-
 .edit form {
   display: flex;
   gap: 5px;
   flex-direction: column;
   align-items: center;
 }
-
 .edit form label {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
-
 .edit form input {
   border: 1px solid;
   border-radius: 5px;
 }
-
 .edit form a {
   width: 100%;
 }
-
 .edit form button {
   cursor: pointer;
   background-color: rgba(0, 4, 255, 0.541);
@@ -45,7 +40,9 @@
 .input {
   background-color: rgba(255, 0, 0, 0.63) !important;
 }
-
+.input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.692);
+}
 .input::placeholder {
   color: rgba(255, 255, 255, 0.692);
 }
@@ -53,7 +50,9 @@
 .inputDesc {
   background-color: rgba(255, 0, 0, 0.63) !important;
 }
-
+.inputDesc::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.719);
+}
 .inputDesc::placeholder {
   color: rgba(255, 255, 255, 0.719);
 }
@@ -62,4 +61,4 @@
   .edit {
     margin-top: 0;
   }
-}
+}/*# sourceMappingURL=Edit.module.css.map */

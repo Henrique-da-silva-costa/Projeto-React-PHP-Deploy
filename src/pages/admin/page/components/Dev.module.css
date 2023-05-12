@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .dev .bt {
   text-transform: uppercase;
   color: #fff;
@@ -18,7 +17,6 @@
   background: rgba(0, 0, 255, 0.479);
   justify-content: center;
 }
-
 .dev button {
   cursor: pointer;
 }
@@ -105,44 +103,44 @@
   justify-content: center;
   flex-direction: column;
 }
-
 .insert form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
 }
-
 .insert form input {
   border-radius: 5px;
   outline: none;
-  border: 1px solid white;
+  border: 1px solid rgb(255, 255, 255);
   background: none;
   color: #fff;
 }
-
-.insert form input::placeholder {
-  color: #ffffffc7;
+.insert form input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7803921569);
 }
-
+.insert form input::placeholder {
+  color: rgba(255, 255, 255, 0.7803921569);
+}
 .insert form textarea {
   border-radius: 5px;
   outline: none;
-  border: 1px solid white;
+  border: 1px solid rgb(255, 255, 255);
   background: none;
   color: #fff;
 }
-
-.insert form textarea::placeholder {
-  color: #ffffffc7;
+.insert form textarea::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7803921569);
 }
-
+.insert form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7803921569);
+}
 .insert form button {
   border-radius: 5px;
   padding: 10px 30px;
   background: none;
   color: #fff;
-  border: 1px solid white;
+  border: 1px solid rgb(255, 255, 255);
   outline: none;
 }
 
@@ -160,14 +158,12 @@
   flex-direction: column;
   z-index: -1;
 }
-
 .insertOff form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
 }
-
 .insertOff form input {
   border-radius: 5px;
   outline: none;
@@ -175,11 +171,12 @@
   background: none;
   color: #fff;
 }
-
-.insertOff form input::placeholder {
-  color: #ffffffc7;
+.insertOff form input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7803921569);
 }
-
+.insertOff form input::placeholder {
+  color: rgba(255, 255, 255, 0.7803921569);
+}
 .insertOff form textarea {
   border-radius: 5px;
   outline: none;
@@ -187,11 +184,12 @@
   background: none;
   color: #fff;
 }
-
-.insertOff form textarea::placeholder {
-  color: #ffffffc7;
+.insertOff form textarea::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7803921569);
 }
-
+.insertOff form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7803921569);
+}
 .insertOff form button {
   border-radius: 5px;
   padding: 10px 30px;
@@ -205,4 +203,4 @@
   position: absolute;
   top: 5px;
   right: 5px;
-}
+}/*# sourceMappingURL=Dev.module.css.map */

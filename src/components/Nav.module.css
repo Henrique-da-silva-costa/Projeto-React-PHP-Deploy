@@ -1,6 +1,16 @@
 .body svg {
-  color: black;
+  color: rgb(0, 0, 0);
   font-size: 0px;
+}
+.body a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #000;
+  align-items: center;
+}
+.body a p {
+  margin: 0;
 }
 
 .admin {
@@ -10,7 +20,6 @@
   justify-content: center;
   cursor: pointer;
 }
-
 .admin p {
   margin: 0;
 }
@@ -22,7 +31,6 @@
   justify-content: center;
   cursor: pointer;
 }
-
 .home p {
   margin: 0;
 }
@@ -34,7 +42,6 @@
   justify-content: center;
   cursor: pointer;
 }
-
 .about p {
   margin: 0;
 }
@@ -57,14 +64,12 @@
   flex-direction: column;
   padding: 35px 0px;
   z-index: 4;
-  background-color: #5457ff;
+  background-color: rgb(84, 87, 255);
 }
-
 .nav svg {
-  color: black;
+  color: rgb(0, 0, 0);
   font-size: 40px;
 }
-
 .nav button {
   background: none;
   outline: none;
@@ -86,15 +91,15 @@
 .open {
   display: none;
   position: fixed;
+  transition: 0.4s all;
   z-index: 3;
   background: none;
   outline: none;
   border: none;
   cursor: pointer;
 }
-
 .open svg {
-  color: #5457ff;
+  color: rgb(84, 87, 255);
   font-size: 40px;
 }
 
@@ -114,11 +119,14 @@
   .navClose {
     height: 0px;
     transition: 0.4s all;
+    width: 0px;
+    flex-direction: column;
   }
   .nav {
-    width: auto !important;
-    height: 100% !important;
-    flex-direction: column !important;
+    width: 40px;
+    transition: 0.4s all;
+    height: 100%;
+    flex-direction: column;
     overflow: hidden;
     justify-content: flex-start;
     gap: 1rem;
@@ -131,4 +139,4 @@
   .xclose {
     display: block;
   }
-}
+}/*# sourceMappingURL=Nav.module.css.map */

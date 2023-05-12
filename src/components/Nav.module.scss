@@ -3,6 +3,16 @@
     color: rgb(0, 0, 0);
     font-size: 0px;
   }
+  a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #000;
+    align-items: center;
+    p {
+      margin: 0;
+    }
+  }
 }
 .admin {
   display: flex;
@@ -109,10 +119,10 @@
     flex-direction: column;
   }
   .nav {
-    width: 40px ;
+    width: 40px;
     transition: 0.4s all;
-    height: 100% ;
-    flex-direction: column ;
+    height: 100%;
+    flex-direction: column;
     overflow: hidden;
     justify-content: flex-start;
     gap: 1rem;

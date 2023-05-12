@@ -17,7 +17,7 @@ $insert = $conn->prepare('INSERT INTO user (senha , email) VALUES (:senha, :emai
 $insert->bindParam(":email", $email);
 $insert->bindParam(":senha", $senha);
 
-$select = $conn->prepare("SELECT * FROM user WHERE email = :email and senha = :senha");
+$select = $conn->prepare("SELECT * FROM user WHERE email = :email");
 
 $select->bindParam(":email", $email);
 $select->bindParam(":senha", $senha);

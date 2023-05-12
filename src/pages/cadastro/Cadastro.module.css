@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
 }
-
 .cadastro button {
   background-color: rgba(0, 4, 255, 0.541);
   border-radius: 5px;
@@ -26,19 +25,16 @@
   flex-direction: column;
   align-items: center;
 }
-
 .form form {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-
 .form form input {
   border-radius: 5px;
   outline: none;
   border: solid 1px grey;
 }
-
 .form form label {
   display: flex;
   flex-direction: column;
@@ -47,7 +43,9 @@
 .inputactive {
   background-color: rgba(255, 0, 0, 0.644);
 }
-
-.inputactive::placeholder {
+.inputactive::-moz-placeholder {
   color: black;
 }
+.inputactive::placeholder {
+  color: black;
+}/*# sourceMappingURL=Cadastro.module.css.map */
