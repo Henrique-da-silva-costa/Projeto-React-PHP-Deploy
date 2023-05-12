@@ -38,7 +38,7 @@ const Nav = () => {
           <p>ADMIN</p>
           {/* </div> */}
         </NavLink>
-        <NavLink to={"/home"}>
+        <NavLink to={"/"}>
           {/* <div onClick={() => nav("/login")} className={styles.admin}> */}
           <AiOutlineHome />
           <p>HOME</p>
