@@ -16,7 +16,7 @@
   padding: 0.5rem;
   width: 80%;
   border-radius: 5px;
-  background-color: #ffffffb9;
+  background-color: rgba(255, 255, 255, 0.7254901961);
   display: flex;
   justify-content: center;
 }
@@ -39,24 +39,21 @@
 .item {
   font-size: small;
   padding: 5px;
-  background-color: #ffffffd7;
+  background-color: rgba(255, 255, 255, 0.8431372549);
   transition: all 0.4s;
   border-radius: 5px;
 }
-
 .item:hover p {
   transition: all 0.4s;
   font-size: 16px;
 }
-
 .item p {
   transition: all 0.4s;
   font-size: 0;
 }
-
 .item:hover {
   transition: all 0.4s;
-  background-color: #ffffff88;
+  background-color: rgba(255, 255, 255, 0.5333333333);
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
@@ -70,7 +67,6 @@
     font-size: 12px;
   }
 }
-
 @media (min-width: 768px) and (max-width: 1020px) {
   .info {
     flex-direction: row;
@@ -79,4 +75,4 @@
     font-size: 13px;
     padding: 10px;
   }
-}
+}/*# sourceMappingURL=Info.module.css.map */

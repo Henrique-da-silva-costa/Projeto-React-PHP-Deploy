@@ -13,7 +13,6 @@
   justify-content: center;
   flex-direction: column;
 }
-
 .insert form {
   display: flex;
   flex-direction: column;
@@ -43,4 +42,4 @@
 .inputActive {
   background-color: rgba(255, 0, 0, 0.548);
   color: #fff;
-}
+}/*# sourceMappingURL=InsertDev.module.css.map */

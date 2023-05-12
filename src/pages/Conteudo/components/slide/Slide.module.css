@@ -10,7 +10,6 @@ article {
   border-radius: 10px;
   box-shadow: 14px 10px 16px grey;
 }
-
 .imgsSlide button {
   cursor: pointer;
   border-radius: 5px;
@@ -20,7 +19,6 @@ article {
   padding: 10px 20px;
   transition: all 0.4s;
 }
-
 .imgsSlide button:hover {
   transition: all 0.4s;
   background-color: #fff;
@@ -41,9 +39,8 @@ article {
     height: 150px;
   }
 }
-
 @media (min-width: 768px) and (max-width: 1000px) {
   .imgsSlide img {
     height: 230px;
   }
-}
+}/*# sourceMappingURL=Slide.module.css.map */

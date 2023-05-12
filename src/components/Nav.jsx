@@ -1,5 +1,5 @@
 import styles from "./Nav.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineHome, AiOutlineMenu } from "react-icons/ai";
 import { RiAdminLine } from "react-icons/ri";
 import { BiBookContent } from "react-icons/bi";
@@ -32,18 +32,24 @@ const Nav = () => {
         <button className={xclose} onClick={closed}>
           <TfiClose />
         </button>
-        <div onClick={() => nav("/login")} className={styles.admin}>
+        <NavLink to={"/login"}>
+          {/* <div onClick={() => nav("/login")} className={styles.admin}> */}
           <RiAdminLine />
           <p>ADMIN</p>
-        </div>
-        <div onClick={() => nav("/")} className={styles.home}>
+          {/* </div> */}
+        </NavLink>
+        <NavLink to={"/home"}>
+          {/* <div onClick={() => nav("/login")} className={styles.admin}> */}
           <AiOutlineHome />
           <p>HOME</p>
-        </div>
-        <div onClick={() => nav("/about")} className={styles.about}>
+          {/* </div> */}
+        </NavLink>
+        <NavLink to={"/about"}>
+          {/* <div onClick={() => nav("/login")} className={styles.admin}> */}
           <TfiLayoutMediaOverlayAlt2 />
           <p>ABOUT</p>
-        </div>
+          {/* </div> */}
+        </NavLink>
       </div>
     </div>
   );

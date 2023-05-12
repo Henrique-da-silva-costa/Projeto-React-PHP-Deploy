@@ -12,7 +12,6 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.596);
 }
-
 .em form {
   display: flex;
   justify-content: center;
@@ -37,4 +36,4 @@
 
 .vazio {
   background-color: rgba(255, 0, 0, 0.671);
-}
+}/*# sourceMappingURL=Email.module.css.map */

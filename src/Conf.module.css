@@ -37,23 +37,18 @@
   justify-content: center;
   gap: 1rem;
 }
-
 .buttons .bt1 {
   background-color: green;
 }
-
 .buttons .bt1:hover {
   background-color: rgba(0, 128, 0, 0.863);
 }
-
 .buttons .bt2 {
   background-color: red;
 }
-
 .buttons .bt2:hover {
   background-color: rgba(255, 0, 0, 0.829);
 }
-
 .buttons button {
   border-radius: 5px;
   border: none;
@@ -67,4 +62,4 @@
 .block {
   border: 1px solid #fff;
   padding: 2rem;
-}
+}/*# sourceMappingURL=Conf.module.css.map */

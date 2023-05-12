@@ -6,11 +6,9 @@
   justify-content: center;
   gap: 2rem;
 }
-
 .page.none {
   display: none;
 }
-
 .page a {
   text-decoration: none;
 }
@@ -42,14 +40,12 @@
   margin: 1rem;
   box-shadow: 6px 3px 16px;
 }
-
 .conteudo button {
   background: none;
   outline: none;
   cursor: pointer;
   border: none;
 }
-
 .conteudo img {
   height: 200px;
   border-radius: 5px;
@@ -83,7 +79,6 @@
   background: rgba(0, 0, 255, 0.479);
   justify-content: center;
 }
-
 .adicionar svg {
   font-size: 25px;
   color: blue;
@@ -102,7 +97,6 @@
     height: 100px;
   }
 }
-
 .confirm {
   transition: all 0.4s;
   position: fixed;
@@ -135,4 +129,4 @@
   background-color: rgba(0, 0, 0, 0.712);
   z-index: -1;
   color: #fff;
-}
+}/*# sourceMappingURL=Page.module.css.map */
