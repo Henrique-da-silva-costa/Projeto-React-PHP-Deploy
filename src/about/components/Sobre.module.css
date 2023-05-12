@@ -53,6 +53,9 @@ article img {
   .txt {
     order: 2;
   }
+  .txt p {
+    font-size: 13px;
+  }
   .sobre {
     width: 70%;
     flex-direction: column;

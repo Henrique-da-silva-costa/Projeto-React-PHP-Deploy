@@ -123,10 +123,10 @@
     flex-direction: column;
   }
   .nav {
-    width: 40px;
+    width: 60px !important;
     transition: 0.4s all;
-    height: 100%;
-    flex-direction: column;
+    height: 100% !important;
+    flex-direction: column !important;
     overflow: hidden;
     justify-content: flex-start;
     gap: 1rem;
