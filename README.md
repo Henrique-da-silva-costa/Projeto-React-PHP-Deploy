@@ -1,3 +1,7 @@
+#Esse é um site editável que pode ser atualizado seu conteúdo, isso na parte de admin on de você pode adicionar, deletar, editar e excluir elementos do site. Nesse site foi utilizadas as tecnologias PHP, Sql , React/JavaScript , HTML e CSS/SCSS
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
