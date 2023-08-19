@@ -22,7 +22,7 @@ const Footer = () => {
         MINHAS REDES DE CONTATO
       </h1>
       <div className={styles.links}>
-        <a href="https://github.com/24101999" target="_blank">
+        <a href="https://github.com/Henrique-da-silva-costa" target="_blank">
           <BsGithub />
         </a>
         <a
