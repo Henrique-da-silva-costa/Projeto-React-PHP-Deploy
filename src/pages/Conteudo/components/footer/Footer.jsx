@@ -22,11 +22,11 @@ const Footer = () => {
         MINHAS REDES DE CONTATO
       </h1>
       <div className={styles.links}>
-        <a href="https://github.com/Henrique-da-silva-costa" target="_blank">
+        <a href="https://github.com/henrique-da-silva-costa" target="_blank">
           <BsGithub />
         </a>
         <a
-          href="https://www.linkedin.com/in/henrique-da-silva-costa-7172521a2/"
+          href="https://www.linkedin.com/in/henrique-da-silva-costa"
           target="_blank"
         >
           <AiFillLinkedin />
